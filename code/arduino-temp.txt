@@ -1,0 +1,35 @@
+#define SENSOR_PIN  A0
+#define MAX_READ    1024.0
+#define MAX_V       5.0
+#define N           20
+#define A           0.5
+#define B           100
+
+void setup() {
+    // imposta il pin SENSOR_PIN (A0) come pin di input analogico e avvia il monitor seriale per la lettura dei dati
+    pinMode(SENSOR_PIN, INPUT);
+    Serial.begin(9600);
+}
+
+float         tmp;
+int           i = 0;  
+unsigned long dt = 0;
+
+void loop() {
+    // stampa sul monitor seriale il tempo dall'avvio del programma
+    Serial.print(dt = millis());
+
+    // misura la temperatura 20 volte e fa la media
+    for (i = 0, tmp = 0; i < N; i++) {
+        tmp += (((float)analogRead(SENSOR_PIN) / MAX_READ) * MAX_V - A) * B;
+    }
+    tmp = tmp / N;
+
+    // stampa la misura di temperatura accanto al tempo e va a capo
+    Serial.print(", ");
+    Serial.println(tmp);
+
+    // aspetta 30 secondi dopo aver compensato per il tempo di esecuzione del codice dall'inizio del loop a questo punto
+    dt = millis() - dt;
+    delay(30000 - dt);
+}

@@ -1,0 +1,42 @@
+\newcommand{\tmp}{TMP36}
+\newcommand{\vs}{\texttt{+Vs}}
+\newcommand{\vout}{\texttt{Vout}}
+\newcommand{\gnd}{\texttt{gnd}}
+\newcommand{\pinV}{\texttt{5V}}
+
+\chapter{Misura di Temperature con Arduino}
+    Tra le esperienze svolte con Arduino Uno riporto in particolare la misura della variazione della temperatura della mia stanza da letto in seguito all'accensione del riscaldamento in casa.
+    \section{L'esperimento}
+            L'obiettivo dell'esperienza è quello di valutare qualitativamente l'andamento della temperatura della stanza per fare una stima di quanto velocemente si riscaldi e a quale temperatura tenda asintoticamente.
+        \subsection{Preparazione della stanza}
+            Per massimizzare l'escursione termica ho effettuato la misura durante una sera invernale avendo preventivamente aperto le finestre per abbassare la temperatura della stanza.
+            
+            Per migliorare la circolazione dell'aria ed evitare un eccessivo gradiente di temperatura---il radiatore caldo si trova in un angolo della stanza mentre i vetri freddi della finestra si trovano dal lato opposto---ho acceso dei ventilatori: uno a soffitto per limitare la raccolta dell'aria calda in alto e un più piccolo ventilatore da tavolo per allontanare l'aria calda dal radiatore e facilitare il riscaldamento dell'aria fredda.
+            
+            Infine, per isolare il più possbile il sistema, ho chiuso le tende sulla finestra per ridurre la dispersione di calore attraverso il vetro freddo e mantenuto la porta chiusa per non disperdere calore nel resto della casa.
+        \subsection{Strumenti utilizzati}
+            Gli strumenti utillizzati per la presa dei dati sono:
+            \begin{enumerate}[label=$\bullet$]
+                \item Una microcontrollore Arduino Uno con un sensore di temperatura \tmp;
+                \item Un computer per compilare ed eseguire il codice sulla scheda Arduino e prelevare i dati.
+            \end{enumerate}
+
+            Il sensore \tmp\ è un sensore di temperatura a semiconduttore pensato per operare in un range di temperature che va da \SI{-40}{\celsius} a $+\SI{125}{\celsius}$. Esso presenta tre pin: \vs, \vout\ e \gnd. Il primo e l'ultimo servono per l'alimentazione che deve essere compresa tra \SI{2.7}{\volt} e \SI{5.5}{\volt} con una corrente inferiore ai \SI{50}{\micro\ampere}, che garantisce un surriscaldamento per effetto Joule trascurabile. Il secondo pin invece sestituisce una differenza di potenziale rispetto al \gnd\ proporzionale alla temperatura misurata. La sensibilità del sensore fornita dal costruttore è di \SI{\pm 1}{\celsius} e il suo fattore di scala è di \SI{10}{\milli\volt\per\celsius}  \cite{tmp36-datasheet}.
+
+            La scheda Arduino attraverso i pin analogici accetta in input delle differenze di potenziale che vanno da \SI{0}{V} a \SI{5}{V} che vengono convertite in un segnale digitale che assume valori discreti da \num{0} a \num{1023}.
+        \subsection{Circuito e codice}
+        \begin{center}
+            \begin{minipage}{0.9\textwidth}
+                \captionsetup{type = figure}
+                \begin{minipage}{0.49\textwidth}
+                    \includegraphics[width = \textwidth]{images/arduino/temp-pic.png}
+                \end{minipage}
+                \hfill
+                \begin{minipage}{0.49\textwidth}
+                    \includegraphics[width = \textwidth]{images/arduino/temp-scheme.pdf}
+                \end{minipage}
+                \captionof{figure}{A sinistra una rappresentazione digitale del circuito realizzato per l'esperimento. A destra lo schema del circuito. Entrambe le illustrazioni sono state realizzate con Tinkercad\textsuperscript{\textregistered}.}
+            \end{minipage}
+        \end{center}
+        \lstinputlisting[language=C++]{code/arduino-temp.txt}
+    \section{Dati}

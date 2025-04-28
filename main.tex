@@ -1,0 +1,62 @@
+\documentclass[oneside, a4paper, 11pt, final]{memoir}
+\usepackage[T1]{fontenc}                % per il font
+\usepackage[utf8]{inputenc}             % per l'input
+\usepackage[english, italian]{babel}    % lingua principale inglese, secondaria italiano
+%\input Rothdn.fd
+%\newcommand*\initfamily{\usefont{U}{Rothdn}{xl}{n}}
+
+\usepackage{layout}                 % per testare la formattazione del testo
+\usepackage{lipsum}                 % anche lui per creare testo a caso
+\usepackage{geometry}               % serve
+
+\usepackage[intlimits]{amsmath}     % =======================================
+\usepackage{amsfonts}               % cose utili per fare matematica e fisica
+\usepackage{amssymb}                % intlimits mette gli estremi di integrazione sopra e sotto il segno di integrale       
+\usepackage{amsthm}                 % cose utili per fare matematica e fisica
+\usepackage{bbm}                    % cose utili per fare matematica e fisica
+\usepackage{physics}                % cose utili per fare matematica e fisica
+\usepackage{tensor}                 % =======================================
+\usepackage{siunitx}
+\usepackage{listings}
+
+\usepackage{graphicx}               % per le foto
+\usepackage{caption}                % per le caption
+\usepackage{tikz}                   % per fare i disegnini belli
+\usepackage{enumitem}               % 
+\usepackage{emptypage}              % non se se serve
+\usepackage{lettrine}               % per le lettere belle a inizio capitolo
+%\usepackage{yfonts}                 % per le lettere belle a inizio capitolo
+\input Rothdn.fd
+\newcommand*\initfamily{\usefont{U}{Rothdn}{xl}{n}}
+\DeclareFontFamily{U}{yinit}{}
+\DeclareFontShape{U}{yinit}{m}{n}{<-> yinit}{}
+\usepackage{hyperref}               % fa le cross reference cliccabili dentro al testo (ad esempio da indice a capitolo)
+                                    % ======================================
+
+\usepackage{xurl}
+\usepackage{csquotes}
+\usepackage[backend=bibtex, style=numeric-comp]{biblatex}
+    \addbibresource{misc/references.bib}
+
+\usepackage{misc/thesisutils}
+\input{misc/settings}
+\DeclareFontFamily{U}{yinit}{}
+\DeclareFontShape{U}{yinit}{m}{n}{<-> yinit}{}
+% ---- REIMPOSTAZIONI ----
+
+\begin{document}
+    \input{misc/titlepage}
+    \pagestyle{thesis}
+
+    \frontmatter
+        \tableofcontents
+        \input{chapters/preface}
+
+    \mainmatter
+        \input{chapters/bethebloch}
+        \input{chapters/arduino}
+        %\input{chapters/multimetro}
+    \backmatter
+        \printbibliography  
+
+\end{document}

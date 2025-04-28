@@ -1,0 +1,12 @@
+\babel@toc {italian}{}\relax 
+\babel@toc {italian}{}\relax 
+\contentsline {chapter}{Indice}{i}{section*.1}%
+\contentsline {chapter}{Sommario}{ii}{chapter*.2}%
+\contentsline {chapter}{\chapternumberline {1}Implementazione Numerica della Formula di Bethe--Bloch}{1}{chapter.1}%
+\contentsline {chapter}{\chapternumberline {2}Misura di Temperature con Arduino}{2}{chapter.2}%
+\contentsline {section}{\numberline {2.1}L'esperimento}{2}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}Preparazione della stanza}{2}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Strumenti utilizzati}{2}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}Circuito e codice}{3}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}Dati}{4}{section.2.2}%
+\contentsline {chapter}{Bibliografia}{5}{section*.5}%

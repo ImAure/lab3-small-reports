@@ -1,0 +1,45 @@
+% $ biblatex auxiliary file $
+% $ biblatex bbl format version 3.3 $
+% Do not modify the above lines!
+%
+% This is an auxiliary file used by the 'biblatex' package.
+% This file may safely be deleted. It will be recreated as
+% required.
+%
+\begingroup
+\makeatletter
+\@ifundefined{ver@biblatex.sty}
+  {\@latex@error
+     {Missing 'biblatex' package}
+     {The bibliography requires the 'biblatex' package.}
+      \aftergroup\endinput}
+  {}
+\endgroup
+
+\datalist[entry]{nty/global//global/global/global}
+  \entry{tmp36-datasheet}{manual}{}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={{Analog Devices}},
+         familyi={A\bibinitperiod},
+      }}%
+    }
+    \list{organization}{1}{%
+      {Analog Devices}%
+    }
+    \strng{namehash}{A1}
+    \strng{fullhash}{A1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{note}{Accessed: 2025-04-27}
+    \field{title}{TMP35/TMP36/TMP37 Data Sheet}
+    \verb{url}
+    \verb https://www.analog.com/media/en/technical-documentation/data-sheets/t
+    \verb mp35_36_37.pdf
+    \endverb
+    \field{year}{2015}
+  \endentry
+\enddatalist
+\endinput

@@ -1,0 +1,88 @@
+%=================%
+%   PAGE LAYOUT   %
+%=================%
+
+\settypeblocksize{*}{1.2\lxvchars}{*}   % lxvchars è una dimensione raccomandata che dipende dal font, utile per la leggibilità
+\setlrmargins{*}{*}{1}                  % setta i margini in modo che siano 1:1 adeguandosi al typeblock
+\setulmarginsandblock{1.5in}{*}{1.4}    % setta i margini superiore e inferiore {superiore}{inferiore}{rapporto}
+\checkandfixthelayout                   % does the magic
+
+%=========================%
+%   HEADER & PAGESTYLES   %
+%=========================%
+
+\setlength{\headwidth}{\textwidth}
+
+\makepagestyle{thesis}                                                     % definisce il nome dello stile
+\makerunningwidth{thesis}{\headwidth}                                      % definisce la lunghezza dell'header
+\makeheadrule{thesis}{\headwidth}{\normalrulethickness}                    % mette la riga nell'header
+\makeheadposition{thesis}{flushright}{flushleft}{flushright}{flushleft}    % definisce la posizione dell'header
+\makepsmarks{thesis}{%                                                     % da qui in poi non lo so
+    \nouppercaseheads
+    \createmark{chapter}{both}{shownumber}{\chaptername\ }{.\ } 
+    \createmark{section}{right}{shownumber}{}{.\ }              
+    \createplainmark{toc}{both}{\contentsname}                  
+    \createplainmark{lof}{both}{\listfigurename}                
+    \createplainmark{lot}{both}{\listtablename}
+    \createplainmark{bib}{both}{\bibname}
+    \createplainmark{index}{both}{\indexname}
+    \createplainmark{glossary}{both}{\glossaryname}    
+}
+
+%% se oneside:
+    \makeoddhead{thesis}{\bfseries\leftmark}{}{\bfseries \thepage}
+%% se twoside:
+    % \makeevenhead{thesis}{\bfseries\thepage}{}{\bfseries\leftmark}
+    % \makeoddhead{thesis}{\bfseries\rightmark}{}{\bfseries
+
+\chapterstyle{hangnum}
+\aliaspagestyle{chapter}{empty}                                             % toglie il numero di pagina nelle pagine con il nome del capitolo.
+\newcommand{\initcolor}{purple}
+
+%===============%
+%   NUMBERING   %
+%===============%
+
+\numberwithin{equation}{chapter}    % Aggiunge il numero del capitolo all'equazione
+\setsecnumdepth{subsection}         % numera le subsection (1.1.1)
+
+\hypersetup{                    % ======================================
+    colorlinks=true,            % template preso da internet
+    linkcolor=black,            % molto sobrio, le cose cliccabili si evidenziano quando passi il mouse
+    filecolor=black,            %
+    urlcolor=blue,              %
+    pdfpagemode=FullScreen,     %
+    citecolor=black,            %
+}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{codeorange}{rgb}{0.5,0.5,0}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},   
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    %variablestyle=\color{codeorange},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,         
+    breaklines=true,
+    breakindent=0pt,                 
+    captionpos=b,                    
+    keepspaces=true,                 
+    numbers=left,
+    frame=tblr,
+    rulecolor=\color{black},
+    numbersep=5pt,                  
+    showspaces=false,                
+    showstringspaces=false,
+    showtabs=false,                  
+    tabsize=4,
+    columns=fixed,
+}
+
+\lstset{style=mystyle}
