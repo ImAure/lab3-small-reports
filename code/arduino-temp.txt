@@ -1,5 +1,5 @@
 #define SENSOR_PIN  A0
-#define MAX_READ    1024.0
+#define MAX_READ    1023.0
 #define MAX_V       5.0
 #define N           20
 #define A           0.5
@@ -16,7 +16,7 @@ int           i = 0;
 unsigned long dt = 0;
 
 void loop() {
-    // stampa sul monitor seriale il tempo dall'avvio del programma
+    // stampa sul monitor seriale il tempo dall'avvio del loop
     Serial.print(dt = millis());
 
     // misura la temperatura 20 volte e fa la media
