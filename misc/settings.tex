@@ -37,23 +37,10 @@
 
 \chapterstyle{hangnum}
 \aliaspagestyle{chapter}{empty}                                             % toglie il numero di pagina nelle pagine con il nome del capitolo.
-\newcommand{\initcolor}{purple}
 
-%===============%
-%   NUMBERING   %
-%===============%
-
-\numberwithin{equation}{chapter}    % Aggiunge il numero del capitolo all'equazione
-\setsecnumdepth{subsection}         % numera le subsection (1.1.1)
-
-\hypersetup{                    % ======================================
-    colorlinks=true,            % template preso da internet
-    linkcolor=black,            % molto sobrio, le cose cliccabili si evidenziano quando passi il mouse
-    filecolor=black,            %
-    urlcolor=blue,              %
-    pdfpagemode=FullScreen,     %
-    citecolor=black,            %
-}
+%==============%
+%   LISTINGS   %
+%==============%
 
 \definecolor{codegreen}{rgb}{0.4,0.6,0.4}
 \definecolor{codegray}{rgb}{0.5,0.5,0.5}
@@ -85,5 +72,26 @@
     tabsize             = 4,
     columns             = fixed,
 }
-
 \lstset{style=mystyle}
+
+%===============%
+%   NUMBERING   %
+%===============%
+
+\numberwithin{equation}{chapter}    % Aggiunge il numero del capitolo all'equazione
+\setsecnumdepth{subsection}         % numera le subsection (1.1.1)
+
+\hypersetup{                    % ======================================
+    colorlinks=true,            % template preso da internet
+    linkcolor=black,            % molto sobrio, le cose cliccabili si evidenziano quando passi il mouse
+    filecolor=black,            %
+    urlcolor=blue,              %
+    pdfpagemode=FullScreen,     %
+    citecolor=black,            %
+}
+
+\pgfplotsset{compat = 1.18}
+\newlength{\plotsize}
+\setlength{\plotsize}{0.8\textwidth}
+
+\newcommand{\initcolor}{purple}
