@@ -17,29 +17,15 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global/global}
-  \entry{tmp36-datasheet}{manual}{}{}
-    \name{author}{1}{}{%
-      {{hash=A}{%
-         family={{Analog Devices}},
-         familyi={A\bibinitperiod},
-      }}%
-    }
-    \list{organization}{1}{%
-      {Analog Devices}%
-    }
-    \strng{namehash}{A1}
-    \strng{fullhash}{A1}
-    \field{labelnamesource}{author}
+  \entry{pdg-particles}{article}{}{}
     \field{labeltitlesource}{title}
-    \field{sortinit}{A}
-    \field{sortinithash}{A}
-    \field{note}{Accessed: 2025-04-27}
-    \field{title}{TMP35/TMP36/TMP37 Data Sheet}
+    \field{sortinit}{P}
+    \field{sortinithash}{P}
+    \field{title}{Passage of Particles Through Matter}
     \verb{url}
-    \verb https://www.analog.com/media/en/technical-documentation/data-sheets/t
-    \verb mp35_36_37.pdf
+    \verb https://pdg.lbl.gov/2022/reviews/rpp2022-rev-passage-particles-matter
+    \verb .pdf
     \endverb
-    \field{year}{2015}
   \endentry
 \enddatalist
 \endinput

@@ -1,2 +1,33 @@
 \chapter{Implementazione Numerica della Formula di Bethe--Bloch}
-Quando le particelle cariche pesanti attraversano la materia esse depositano energia interagendo con fenomeni di diffusione.
+La formula di Bethe--Bloch è un modello sperimentale che descrive la perdita di energia di particelle cariche come protoni e $\alpha$ nella materia:
+\begin{equation}
+    \left\langle -\dv{E}{x}\right\rangle
+    = Kz^2 \frac{Z}{A}\frac{1}{\beta^2}\bqty{\frac{1}{2}\log\frac{2 m_e c^2 \beta^2 \gamma^2 W_\text{max}}{I^2} - \beta^2 - \frac{\delta\pqty{\beta\gamma}}{2}}
+    \mycomma
+\end{equation}
+dove $\beta$ e $\gamma$ sono le usuali quantità relativistiche mentre il resto dei simboli sono esplicitati in \tabref{tab:bet:costanti} \cite{pdg-particles}.
+\begin{table}
+    \footnotesize
+    \centering
+    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lll}\hline\rule{0pt}{8pt}%
+        Simbolo & Definizione & Valore o unità di misura\\[0.5pt]
+        \hline\hline\rule{0pt}{9pt}%
+        $m_e c^2$ & massa a riposo dell'elettrone $\times c^2$ & \SI{ 0.51099895000(15)}{\mega\eV}\\
+        $r_e$ & raggio classico dell'elettrone $ e^2/4\pi \epsilon_0 m_e c^2$ & \SI{2.8179403227(19)}{\femto\meter}\\
+        $N_\text{A}$ & numero di Avogadro & \SI{ 6.022140857(74)e+23}{mol^{-1}}\\[2pt]
+        \hline\rule{0pt}{9pt}%
+        $\rho$ & densità & \unit{\g\,\centi\meter^{-3}}\\
+        $x$ & massa per unità di area & \unit{\gram\,\centi\meter^{-2}}\\ 
+        $M$ & massa della particella incidente & \unit{\mega\eV \,\mathit{c}^{-2}}\\
+        $E$ & energia della particella incidente $\gamma M c^2$ & \unit{\mega\eV}\\
+        $W_\text{max}$ & massima energia trasferibile per collisioni & \unit{\mega\eV}\\
+        $z$ & numero di carica della particella incidente & \\
+        $Z$ & numreo atomico del bersaglio & \\
+        $A$ & numero di massa atomica del bersaglio & \\
+        $K$ & $4\pi N_\text{A} r_e^2 m_e c^2$ & \SI{0.307075}{\mega\eV\,\mol^{-1}\,\centi\meter^2}\\
+        $I$ & energia media di eccitazione & \unit{\eV}\\
+        $\delta\pqty{\beta\gamma}$ & correzione di ionizzazione & \\[1pt]
+        \hline
+    \end{tabular*}
+    \caption{Notazione per la formula di Bethe--Bloch.}
+    \label{tab:bet:costanti}\end{table}
