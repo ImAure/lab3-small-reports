@@ -11,4 +11,5 @@
 \contentsline {section}{\numberline {2.2}Dati}{5}{section.2.2}%
 \contentsline {subsection}{\numberline {2.2.1}Prime considerazioni}{5}{subsection.2.2.1}%
 \contentsline {subsection}{\numberline {2.2.2}Breve analisi dei dati}{5}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Conclusioni}{7}{section.2.3}%
 \contentsline {chapter}{Bibliografia}{8}{section*.7}%
