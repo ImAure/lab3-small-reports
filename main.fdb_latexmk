@@ -1,15 +1,15 @@
 # Fdb version 4
-["bibtex main"] 1746402668.57752 "main.aux" "main.bbl" "main" 1746402668.95171 0
-  "./main-blx.bib" 1746402550 342 20d1170ef6c1d70c658d70e011e08dba ""
-  "./misc/references.bib" 1746402667 767 226be6b87eddd453bb48579d2e45fc05 ""
+["bibtex main"] 1746565564.47978 "main.aux" "main.bbl" "main" 1746565568.05918 0
+  "./main-blx.bib" 1746565566 342 20d1170ef6c1d70c658d70e011e08dba ""
+  "./misc/references.bib" 1746462003 747 14055ea26f41da480b9c710b8264cf95 ""
   "c:/texlive/2024/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1741297022 65510 b1f696b0241395385f422f67543c37fd ""
-  "main.aux" 1746402550 1690 b53c74a4238dadec4764b271c0abb182 "pdflatex"
+  "main.aux" 1746565566 1761 29c1134dc5c36c48b9e3cce70e400267 "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1746402548.97939 "c:/Users/pappa/Documents/LaTeX/projects/lab3-small-reports/main.tex" "main.pdf" "main" 1746402668.95206 0
-  "c:/Users/pappa/Documents/LaTeX/projects/lab3-small-reports/main.tex" 1746398124 2728 950a6d3158105fda8d58713b5173725c ""
+["pdflatex"] 1746565564.84872 "c:/Users/pappa/Documents/LaTeX/projects/lab3-small-reports/main.tex" "main.pdf" "main" 1746565568.06002 0
+  "c:/Users/pappa/Documents/LaTeX/projects/lab3-small-reports/main.tex" 1746565553 2728 950a6d3158105fda8d58713b5173725c ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1741297483 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc" 1741299071 7631 5169ff1acd97ff1c4ab83563c99f96f4 ""
   "c:/texlive/2024/texmf-dist/fonts/map/fontname/texfonts.map" 1741298512 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -312,13 +312,14 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1741302847 5512713 1e2df2d1e914a8052c604db674da6db6 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1741303046 3352886 2c0bd1fa81709374a3fc319844a38b29 ""
   "c:/texlive/2024/texmf.cnf" 1741302828 713 e69b156964470283e0530f5060668171 ""
-  "chapters/bethebloch.tex" 1746402457 2146 82aacf43739e3997235254ae2c2a761c ""
+  "chapters/bethebloch.tex" 1746462018 2155 a32fda5e113712b4c84e9b27dc4e6fcf ""
   "chapters/preface.tex" 1745505052 350 0fe606a356c2b7ed249071d42d414946 ""
-  "main.aux" 1746402550 1690 b53c74a4238dadec4764b271c0abb182 "pdflatex"
-  "main.bbl" 1746402668 835 0561f584fe698a8ca0880cdc5d0db99e "bibtex main"
-  "main.out" 1746402550 588 57f713bb5bca7426100758a8f6f8eced "pdflatex"
-  "main.tex" 1746398124 2728 950a6d3158105fda8d58713b5173725c ""
-  "main.toc" 1746402550 330 b917ea0a9ef93fb8986d87d613c13f88 "pdflatex"
+  "main.aux" 1746565566 1761 29c1134dc5c36c48b9e3cce70e400267 "pdflatex"
+  "main.bbl" 1746565564 1384 43378e96f236f94f2ccfea279f95dbf6 "bibtex main"
+  "main.out" 1746565566 588 57f713bb5bca7426100758a8f6f8eced "pdflatex"
+  "main.run.xml" 1746565566 2599 709c9099dff9ab366ca49da3c07d2fdb "pdflatex"
+  "main.tex" 1746565553 2728 950a6d3158105fda8d58713b5173725c ""
+  "main.toc" 1746565566 330 b917ea0a9ef93fb8986d87d613c13f88 "pdflatex"
   "misc/settings.tex" 1746202402 4021 cca0b0d24c6d17e87f6d74e49fcf9912 ""
   "misc/thesisutils.sty" 1746402070 1917 e75ce0d6beede43aa6da5aca8f167193 ""
   "misc/titlepage.tex" 1745499024 137 8c487a2eb583f3aa00e18a357e4c43fa ""
