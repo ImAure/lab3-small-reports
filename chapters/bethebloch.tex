@@ -1,33 +1,57 @@
-\chapter{Implementazione Numerica della Formula di Bethe--Bloch}
-La formula di Bethe--Bloch è un modello sperimentale che descrive la perdita di energia di particelle cariche come protoni e $\alpha$ nella materia:
-\begin{equation}
-    \left\langle -\dv{E}{x}\right\rangle
-    = Kz^2 \frac{Z}{A}\frac{1}{\beta^2}\bqty{\frac{1}{2}\log\frac{2 m_e c^2 \beta^2 \gamma^2 W_\text{max}}{I^2} - \beta^2 - \frac{\delta\pqty{\beta\gamma}}{2}}
-    \mycomma
-\end{equation}
-dove $\beta$ e $\gamma$ sono le usuali quantità relativistiche mentre il resto dei simboli sono esplicitati in \tabref{tab:bet:costanti} \cite{ParticleDataGroup:2024}.
-\begin{table}
-    \footnotesize
-    \centering
-    \begin{tabular*}{\textwidth}{@{\extracolsep{\fill}}lll}\hline\rule{0pt}{8pt}%
-        Simbolo & Definizione & Valore o unità di misura\\[0.5pt]
-        \hline\hline\rule{0pt}{9pt}%
-        $m_e c^2$ & massa a riposo dell'elettrone $\times c^2$ & \SI{ 0.51099895000(15)}{\mega\eV}\\
-        $r_e$ & raggio classico dell'elettrone $ e^2/4\pi \epsilon_0 m_e c^2$ & \SI{2.8179403227(19)}{\femto\meter}\\
-        $N_\text{A}$ & numero di Avogadro & \SI{ 6.022140857(74)e+23}{mol^{-1}}\\[2pt]
-        \hline\rule{0pt}{9pt}%
-        $\rho$ & densità & \unit{\g\,\centi\meter^{-3}}\\
-        $x$ & massa per unità di area & \unit{\gram\,\centi\meter^{-2}}\\ 
-        $M$ & massa della particella incidente & \unit{\mega\eV \,\mathit{c}^{-2}}\\
-        $E$ & energia della particella incidente $\gamma M c^2$ & \unit{\mega\eV}\\
-        $W_\text{max}$ & massima energia trasferibile per collisioni & \unit{\mega\eV}\\
-        $z$ & numero di carica della particella incidente & \\
-        $Z$ & numreo atomico del bersaglio & \\
-        $A$ & numero di massa atomica del bersaglio & \\
-        $K$ & $4\pi N_\text{A} r_e^2 m_e c^2$ & \SI{0.307075}{\mega\eV\,\mol^{-1}\,\centi\meter^2}\\
-        $I$ & energia media di eccitazione & \unit{\eV}\\
-        $\delta\pqty{\beta\gamma}$ & correzione di ionizzazione & \\[1pt]
-        \hline
-    \end{tabular*}
-    \caption{Notazione per la formula di Bethe--Bloch.}
-    \label{tab:bet:costanti}\end{table}
+\chapter[Implementazione Numerica della Formula di Bethe--Bloch][Formula di Bethe--Bloch]{Implementazione Numerica della Formula di Bethe--Bloch}
+
+\section{Il modello}
+    Come descritto dal Particle Data Group \cite{PhysRevD-110-030001}, la formula di Bethe--Bloch è un modello sperimentale che descrive la perdita di energia di particelle cariche pesanti di media energia---come protoni e particelle $\alpha$---nella materia:
+    \begin{equation}
+        \left\langle -\dv{E}{x}\right\rangle
+        = Kz^2 \frac{Z}{A}\frac{1}{\beta^2}\bqty{\frac{1}{2}\log\frac{2 m_e c^2 \beta^2 \gamma^2 W_\text{max}}{I^2} - \beta^2 - \frac{\delta\pqty{\beta\gamma}}{2}}
+        \mycomma
+        \label{eq:bet:bethe-bloch-1}
+    \end{equation}
+    dove $\beta$ e $\gamma$ sono le usuali quantità relativistiche mentre il resto dei simboli sono esplicitati in \tabref{tab:bet:costanti}.
+    \begin{table}
+        \footnotesize
+        \centering
+        \input{tables/bethe-constants.tex}
+        \caption{Notazione e unità di misura per la formula di Bethe--Bloch.}
+        \label{tab:bet:costanti}
+    \end{table}
+    La perdita di energia media data dalla \eqref{eq:bet:bethe-bloch-1} è misuarta in \unit{\mega\eV\,\gram^{-1}\,\centi\meter^2} ma può essere portata in \unit{\mega\eV\,\centi\meter^{-1}} moltiplicando entrambi i membri per la densità volumica $\rho$ del bersaglio misurata in \unit{\gram\,\centi\meter^{-3}}. La quantità $W_\text{max}$ è la massima energia che una particella carica può cedere a un elettrone e si esprime come
+    \begin{equation}
+        W_\text{max} = \frac{2 m_e c^2 \beta^2 \gamma^2}{1 + \gamma\, m_e / M + (m_e / M)^2}
+        \myperiod
+        \label{eq:bet:wmax}
+    \end{equation}
+    La \eqref{eq:bet:bethe-bloch-1} e la \eqref{eq:bet:wmax} sono valide nell'approssimazione $\num{0.1} \lesssim \beta\gamma \lesssim \num{1000}$ poiché al limite inferiore la velocità del proiettile diventa confrontabile con la ``velocità'' degli elettroni atomici mentre al limite superiore gli effetti radiativi non sono più trascurabili.
+
+\section{La simulazione}
+    Ho scelto di simulare la perdita di energia di una particella $\alpha$ a \SI{5}{\mega\eV} attraverso un foglio di alluminio di spessore\footnote{Dopo aver provato con uno spessore di \SI{0.016}{\milli\meter} e aver constatato che la curva risultava tagliata---la particella non cedeva tutta l'energia all'alluminio---ho scelto di aumentare di poco lo spessore per il gusto di un grafico più completo.} \SI{0.020}{\milli\meter}. Per realizzare la simulazione ho scritto un codice in C che calcola la \eqref{eq:bet:bethe-bloch-1} in modo approssimato.
+    \subsection{Descrizione del codice e dei calcoli}
+        Il programma inizia richiedendo da tastiera il numero di intervalli $N$ in cui suddividere lo spessore del materiale; gli altri dati sono tutti precompilati come costanti. 
+        
+        Assumiamo che in ciascun intervallo di spessore\footnote{Ricordo che in questo caso la $x$ non indica una distanza.} $\dd{s}$ tutte le quantità di nostro interesse siano costanti---velocità, energia, perdita di energia \myetc. Dalla teoria della relatività ristretta scriviamo per l'$n$-esimo intervallo
+        \begin{equation*}
+            \begin{cases}    
+                E_n = T_n + M c^2\\
+                E_n = \gamma_n M c^2
+            \end{cases}
+            \mycomma
+        \end{equation*}
+        dove $M$ è la massa a riposo della particella incidente, $T_n$ la sua energia cinetica ed $E_n$ la sua energia totale. Note queste ultime due quantità, è possibile calcolare il fattore di Lorentz $\gamma_n$ e $\beta_n^2$ come
+        \begin{equation*}
+            \gamma_n = \frac{T_n + M c^2}{M c^2}
+            \,,
+            \quad
+            \beta_n^2 = 1 - \frac{1}{\gamma_n^2}
+            \myperiod
+        \end{equation*}
+        Le quantità appena descritte sono calcolate attraverso il codice nelle righe 44--47.
+
+        Noti $\gamma_n$ e $\beta_n$, è possibile calcolare la perdita di energia media per unità di lunghezza attraverso la \eqref{eq:bet:bethe-bloch-1} moltiplicata per $\rho$. Possiamo in particolare calcolare l'energia cinetica con cui la particella $\alpha$ entra nello strato successivo, $T_{n + 1}$ come
+        \begin{equation*}
+            T_{n + 1} = T_n + \dd{T_n} = T_n + \rho\, {\left\langle - \dv{E}{x} \right\rangle}_n \dd{s}
+            \mycomma
+        \end{equation*}
+        essendo naturalmente $\dd{T_n} \leq 0$. Il calcolo di $\rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$ è svolto dalla funzione \texttt{bethe()} chiamata alla riga 49 e definita alla riga 75, con l'ausilio della funzione \texttt{wmax()} che in particolare calcola il termine $W_\text{max}$.
+
+        Il calcolo viene quindi ripetuto a partire dalla nuova energia $T_{n + 1}$ per ottenere la perdita di energia attraverso il successivo strato. Per ogni reiterazione il codice stampa su un file la distanza totale percorsa, l'energia cinetica della particella e la quantità $\abs{\dd{T_n}} = \rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$.

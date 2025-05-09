@@ -17,38 +17,68 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global/global}
-  \entry{ParticleDataGroup:2024}{article}{}{}
-    \name{author}{2}{}{%
-      {{hash=GD}{%
-         family={Groom},
-         familyi={G\bibinitperiod},
-         given={D.},
-         giveni={D\bibinitperiod},
+  \entry{tmp36-datasheet}{manual}{}{}
+    \name{author}{1}{}{%
+      {{hash=A}{%
+         family={{Analog Devices}},
+         familyi={A\bibinitperiod},
       }}%
-      {{hash=KS}{%
-         family={Klein},
-         familyi={K\bibinitperiod},
+    }
+    \list{organization}{1}{%
+      {Analog Devices}%
+    }
+    \strng{namehash}{A1}
+    \strng{fullhash}{A1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{A}
+    \field{sortinithash}{A}
+    \field{note}{Accessed: 2025-04-27}
+    \field{title}{TMP35/TMP36/TMP37 Data Sheet}
+    \verb{url}
+    \verb https://www.analog.com/media/en/technical-documentation/data-sheets/t
+    \verb mp35_36_37.pdf
+    \endverb
+    \field{year}{2015}
+  \endentry
+
+  \entry{PhysRevD-110-030001}{article}{}{}
+    \name{author}{2}{}{%
+      {{hash=NS}{%
+         family={Navas},
+         familyi={N\bibinitperiod},
          given={S.},
          giveni={S\bibinitperiod},
+      }}%
+      {{hash=ACea}{%
+         family={Amsler},
+         familyi={A\bibinitperiod},
+         given={C.\bibnamedelima et\bibnamedelima al.},
+         giveni={C\bibinitperiod\bibinitdelim e\bibinitperiod\bibinitdelim a\bibinitperiod},
       }}%
     }
     \list{publisher}{1}{%
       {American Physical Society}%
     }
-    \strng{namehash}{GDKS1}
-    \strng{fullhash}{GDKS1}
+    \strng{namehash}{NSACea1}
+    \strng{fullhash}{NSACea1}
     \field{labelnamesource}{author}
     \field{labeltitlesource}{title}
-    \field{sortinit}{G}
-    \field{sortinithash}{G}
+    \field{sortinit}{N}
+    \field{sortinithash}{N}
     \verb{doi}
     \verb 10.1103/PhysRevD.110.030001
     \endverb
-    \field{number}{3}
-    \field{title}{Passage of Particles Through Matter}
+    \field{issue}{3}
+    \field{pages}{030001}
+    \field{title}{Review of Particle Physics}
+    \verb{url}
+    \verb https://link.aps.org/doi/10.1103/PhysRevD.110.030001
+    \endverb
     \field{volume}{110}
-    \field{journaltitle}{Physical Revision D}
+    \field{journaltitle}{Phys. Rev. D}
     \field{year}{2024}
+    \warn{\item Invalid format of field 'month'}
   \endentry
 \enddatalist
 \endinput

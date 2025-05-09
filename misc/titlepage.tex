@@ -1,7 +1,76 @@
-\newgeometry{margin=50pt}
+% \newgeometry{margin=70pt}
+% \begin{titlingpage}
+%     \begin{center}
+%         \begin{minipage}[b]{0.5\textwidth}
+%             \flushleft\includegraphics[height = 70pt]{images/UniCT-Logo-Nero1.png}
+%         \end{minipage}
+%         \hspace{\fill}
+%         \begin{minipage}[b]{0.45\textwidth}
+%             \flushright\includegraphics[height = 70pt]{images/LogoDFA.png}
+%         \end{minipage}%
+%         \\[10pt]
+%         \hrule\vspace{5pt}\hrule
+%         \vspace{\fill}
+%         \textbf{\huge{TESINA}}
+%         \vspace{\fill}\
+%         \vspace{\fill}
+%         \hrule
+%         \vspace{5pt}
+%         \textbf{Anno Accademico 2024--2025}
+%     \end{center}
+% \end{titlingpage}
+% \restoregeometry
+
+\newgeometry{margin=1in}
+\newcommand{\unictsize}{0.3\textwidth}
+\newcommand{\dfasize}{0.6\textwidth}
+\newcommand{\namesize}{0.8\textwidth}
+\newcommand{\doublerule}{\hrule \vspace{5pt} \hrule}
+
 \begin{titlingpage}
     \begin{center}
-        centro
+        \begin{minipage}[h!]{\linewidth}
+            \begin{minipage}[ht!]{\linewidth}
+                \centering
+                \includegraphics[width=\unictsize]{images/UniCT-Logo-Nero-quadrato.png}
+            \end{minipage}
+            \centering\large
+            \textbf{UNIVERSITÀ DEGLI STUDI DI CATANIA}
+            \\[5pt]
+            \normalsize
+            \textsc{Dipartimento di Fisica e Astronomia ``Ettore Majorana''}
+            \\[5pt]
+            \textsc{Corso di Laurea in Fisica}
+            \\[10pt]
+            \doublerule
+        \end{minipage}
+        \\[50pt]
+        \vspace{\fill}
+        {\huge\bfseries Relazioni di\\Laboratorio di Fisica 3\\}
+        % \begin{tikzpicture}
+        %     \draw (0, 0) node[inner sep=0,nearly transparent] {\includegraphics[width=\dfasize]{images/dfa-logo.png}};
+        %     \draw (0, 1) node {\huge{\textbf{METODI SIMPLETTICI}}};
+        %     \draw (0, 0) node {\huge{\textbf{PER LE EQUAZIONI}}};
+        %     \draw (0, -1) node {\huge{\textbf{DI EINSTEIN}}};
+        % \end{tikzpicture}
+        %\huge{\textbf{TITOLO\\\vspace{5pt}DELLA TESI}}\normalsize
+        \vfill
+        \centering
+        \begin{minipage}[h]{\unictsize}
+            \centering
+            \hrule
+            \vspace{10pt}
+            \textsc{Le quattro cose}
+            \vspace{10pt}
+            \hrule
+        \end{minipage}
+        \\[50pt]
+        \vspace{\fill}
+        \vspace{30pt}
+        \doublerule
+        \vspace{10pt}
+        \normalsize
+        \textbf{Anno Accademico 2024 -- 2025}
     \end{center}
 \end{titlingpage}
 \restoregeometry
