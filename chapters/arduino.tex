@@ -6,7 +6,7 @@
 \newcommand{\sensorpin}{\texttt{A0}}
 \newcommand{\txtloop}{\texttt{loop}}
 
-\chapter{Misura di Temperature con Arduino}
+\chapter{Misura di Temperature con Arduino}\label{ch:ard}
     Tra le esperienze svolte con Arduino Uno riporto in particolare la misura della variazione della temperatura della mia stanza da letto in seguito all'accensione del riscaldamento in casa.
 
     \section{L'esperimento}
@@ -46,7 +46,7 @@
                     \label{fig:arduino-1}
             \end{figure}
 
-            Per effettuare le misure ho usato il codice riportato di seguito. A intervalli di \SI{30}{\second} la lettura discreta di tensione data dal sensore\footnote{Come detto prima si tratta di un valore tra \num{0} e \num{1023}} e la converte in un numero decimale tra \SI{0}{\volt} e \SI{5}{V} attraverso la formula
+            Per effettuare le misure ho usato il codice riportato in appendice \ref{app:ard}. A intervalli di \SI{30}{\second} la lettura discreta di tensione data dal sensore\footnote{Come detto prima si tratta di un valore tra \num{0} e \num{1023}} e la converte in un numero decimale tra \SI{0}{\volt} e \SI{5}{V} attraverso la formula
             \begin{equation*}
                 \frac{\text{\ttfamily (float)analogRead(SENSOR\_PIN)}}{\text{\ttfamily MAX\_READ}} * \text{\ttfamily MAX\_V}
                 \mycomma
@@ -60,10 +60,9 @@
             dove $\text{\ttfamily A} = \SI{0.5}{\volt}$ e $\text{\ttfamily B} = \SI{100}{\celsius\per\volt}$ sono i fattori di scala.
 
             La conversione dei valori discreti in temperatura è eseguita dal codice tra le righe \texttt{23} e \texttt{26} applicando la \eqref{eq:ard:temp-conv}. Vengono eseguite $\text{\ttfamily N} = 20$ misure consecuitive di cui è contestualmente calcolata la media che viene a sua volta stampata a schermo. Infine il codice attende il tempo mancante per raggiungere i \SI{30}{\second} dall'inizio del \txtloop.
-            \lstinputlisting[language=C++]{code/arduino-temp.txt}
 
     \section{Dati}
-        Attraverso il codice riportato al punto \S~\ref{ard:codice} ho misurato la temperatura della stanza ogni \SI{30}{s} per circa cinque ore e mezza; in \figref{fig:ard:raw-temp} sono riportati tutti i dati raccolti, avendo convertito il tempo in minuti.
+        Attraverso il codice riportato al punto \Sref{ard:codice} ho misurato la temperatura della stanza ogni \SI{30}{s} per circa cinque ore e mezza; in \figref{fig:ard:raw-temp} sono riportati tutti i dati raccolti, avendo convertito il tempo in minuti.
 
         \begin{figure}
             \centering
@@ -143,7 +142,7 @@
 
             Anche in questo caso si notano l'andamento crescente della temperatura e il salto, ma le oscillazioni intorno alla temperatura finale di circa \SI{24}{\celsius} risultano smorzate. Si osserva inoltre che la temperatura si stabilizza intorno a questo valore \SI{150}{\min}---oppure  \SI{2}{\hour}\,\SI{30}{\min}---dopo l'accensione del riscaldamento.
             
-            Svolgiamo adesso un fit dei dati di carattere prettamente qualitativo. Dal momento che il radiatore a regime avrà una temperatura $T^*$ fissata e, tenendo conto della dispersione del calore verso l'esterno, è ragionevole assumere che la temperatura della stanza $T\pqty{t}$ tenda asintoticamente a un valore finito $T_\text{f} \leq T^*$ per $t\to+\infty$. Una funzione crescente che ha un comportamento simile è
+            Svolgiamo adesso un fit dei dati di carattere prettamente qualitativo. Dal momento che il radiatore a regime avrà una temperatura $T^*$ fissata e tenendo conto della dispersione del calore verso l'esterno, è ragionevole assumere che la temperatura della stanza $T\pqty{t}$ tenda asintoticamente a un valore finito $T_\text{f} \leq T^*$ per $t\to+\infty$. Una funzione crescente che ha un comportamento simile è
             \begin{equation}
                 T\pqty{t} = T_\text{f}\bqty{1 - \exp\!\pqty{-\frac{t - t_0}{\tau}}}
                 \mycomma
@@ -165,7 +164,7 @@
             \end{equation}
 
     \section{Conclusioni}
-        I dati presi possono essere ulteriormente migliorati facendo maggiore attenzione a non toccare gli strumenti o uscendo dalla stanza e assicurandosi che la porta non venga mai aperta.
+        I dati presi possono essere migliorati facendo maggiore attenzione a non toccare gli strumenti o uscendo dalla stanza e assicurandosi che la porta non venga mai aperta.
 
         Per avere informazioni più dettagliate sulla bontà del fit si potrebbe invece procedere applicando il metodo dei minimi quadrati per determinare i tre parametri $T_\text{f}$, $t_0$ e $\tau$. Per eseguire un fit con due parametri invece che tre, si può migliorare l'accuratezza su $T_\text{f}$ continuando a prendere dati il più a lungo possibile. Questo permetterebbe di fissare la temperatura limite con più sicurezza e di determinare $t_0$ e $\tau$ attraverso la linearizzazione della \eqref{eq:ard:temp-analitica} in
         \begin{equation*}
@@ -175,5 +174,5 @@
             \myperiod
         \end{equation*}
 
-        Si potrebbe inoltre provare a utilizzare funzioni diverse dalla \eqref{eq:ard:temp-analitica} nel fit per provare a modellare quantitativamente le oscillazioni che si verificano in prossimità della temperatura limite, possibilmente dovute a moti convettivi non del tutto smorzati dai ventilatori indicati al punto \S~\ref{ss:ard:preparazione}.
+        Si potrebbe inoltre provare a utilizzare funzioni diverse dalla \eqref{eq:ard:temp-analitica} nel fit per provare a modellare quantitativamente le oscillazioni che si verificano in prossimità della temperatura limite, possibilmente dovute a moti convettivi non del tutto smorzati dai ventilatori indicati al punto \Sref{ss:ard:preparazione}.
         

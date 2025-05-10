@@ -9,7 +9,6 @@
 #define I       173.0   /* mean excitation energy in Al */
 
 /* INC = projectile, TAR = target */
-
 #define Z_INC   2.0     /* number of protons in projectile */
 #define M_INC   2807.0  /* mass of projectile in MeV / c^2 (4He) */
 #define T_INC   5.0     /* kynetic energy of projectile (MeV) */
@@ -51,9 +50,7 @@ int main() {
             stop = bethe(K, M_E, Z_INC, Z_TAR, A_TAR, R_TAR, beta2, gamma2, wmax(ME, beta2, gamma, gamma2, m, m2), I);
 
             dT = stop * dx;
-
             fprintf(pf, "%.8f %.8f %.8f\n", x, T, dT);
-
             T -= dT;
         }
     }
@@ -66,7 +63,7 @@ int main() {
         return EXIT_FAILURE;
 
     err_file:
-        printf("File at '%s' not found or impossible to open\n", FILE_PATH);
+        printf("File at '%s' not found or could not be open\n", FILE_PATH);
         return EXIT_FAILURE;
 }
 
