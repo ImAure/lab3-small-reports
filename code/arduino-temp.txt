@@ -20,10 +20,10 @@ void loop() {
     Serial.print(dt = millis());
 
     // measure the temperature 20 times and calculate the average
-    for (i = 0, tmp = 0; i < N; i++) {
+    for (i = 0, tmp = 0; i < N; i++) {      |\label{ln:ard:calc-start}|
         tmp += (((float)analogRead(SENSOR_PIN) / MAX_READ) * MAX_V - A) * B;
     }
-    tmp = tmp / N;
+    tmp = tmp / N;                          |\label{ln:ard:calc-end}|
 
     // print the measured temperature next to the corresponding time
     Serial.print(", ");

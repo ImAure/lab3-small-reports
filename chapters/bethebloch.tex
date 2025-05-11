@@ -42,14 +42,14 @@
             \beta_n^2 = 1 - \frac{1}{\gamma_n^2}
             \myperiod
         \end{equation*}
-        Le quantità appena descritte sono calcolate attraverso il codice nelle righe \ref{ln:bet:T-start}--\ref{ln:bet:T-end}.
+        Le quantità appena descritte sono calcolate attraverso il codice nelle righe \lnref{ln:bet:T-start}--\lnref{ln:bet:T-end}.
 
         Noti $\gamma_n$ e $\beta_n$, è possibile calcolare la perdita di energia media per unità di lunghezza attraverso la \eqref{eq:bet:bethe-bloch-1} moltiplicata per $\rho$. Possiamo in particolare calcolare l'energia cinetica con cui la particella $\alpha$ entra nello strato successivo, $T_{n + 1}$ come
         \begin{equation*}
             T_{n + 1} = T_n + \dd{T_n} = T_n + \rho\, {\left\langle - \dv{E}{x} \right\rangle}_n \dd{s}
             \mycomma
         \end{equation*}
-        essendo naturalmente $\dd{T_n} \leq 0$. Il calcolo di $\rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$ è svolto dalla funzione \texttt{bethe()} chiamata alla riga \ref{ln:bet:bethe-call} e definita alla riga \ref{ln:bet:bethe-def}, con l'ausilio della funzione \texttt{wmax()} che in particolare calcola il termine $W_\text{max}$.
+        essendo naturalmente $\dd{T_n} \leq 0$. Il calcolo di $\rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$ è svolto dalla funzione \texttt{bethe()} chiamata alla riga \lnref{ln:bet:bethe-call} e definita alla riga \lnref{ln:bet:bethe-def}, con l'ausilio della funzione \texttt{wmax()} che in particolare calcola il termine $W_\text{max}$.
 
         Il calcolo viene quindi ripetuto a partire dalla nuova energia $T_{n + 1}$ per ottenere la perdita di energia attraverso il successivo strato. Per ogni reiterazione il codice stampa su un file la distanza totale percorsa, l'energia cinetica della particella e la quantità $\abs{\dd{T_n}} = \rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$.
 

@@ -1,14 +1,14 @@
 # Fdb version 4
-["bibtex main"] 1746985520.71258 "main.aux" "main.bbl" "main" 1746985526.52822 0
-  "./main-blx.bib" 1746985525 342 20d1170ef6c1d70c658d70e011e08dba ""
+["bibtex main"] 1747002195.80793 "main.aux" "main.bbl" "main" 1747002235.23814 0
+  "./main-blx.bib" 1747002233 342 20d1170ef6c1d70c658d70e011e08dba ""
   "./misc/references.bib" 1746636582 777 6a5957e542c0049344b4e85b06032184 ""
   "c:/texlive/2024/texmf-dist/bibtex/bst/biblatex/biblatex.bst" 1741297022 65510 b1f696b0241395385f422f67543c37fd ""
-  "main.aux" 1746985525 7672 c30140535f8dc941f44ddf38ef4f73d0 "pdflatex"
+  "main.aux" 1747002233 7826 56f98995a76a890ad7d33b373ec8d4cd "pdflatex"
   (generated)
   "main.bbl"
   "main.blg"
   (rewritten before read)
-["pdflatex"] 1746985521.118 "c:/Users/pappa/Documents/LaTeX/projects/lab3-small-reports/main.tex" "main.pdf" "main" 1746985526.52911 0
+["pdflatex"] 1747002229.90726 "c:/Users/pappa/Documents/LaTeX/projects/lab3-small-reports/main.tex" "main.pdf" "main" 1747002235.23899 0
   "c:/Users/pappa/Documents/LaTeX/projects/lab3-small-reports/main.tex" 1746985514 2857 d0192df76b46a8193d0e6e3230719fc8 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc" 1741297483 2971 def0b6c1f0b107b3b936def894055589 ""
   "c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1741297483 2900 1537cc8184ad1792082cd229ecc269f4 ""
@@ -334,12 +334,12 @@
   "c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map" 1741302847 5512713 1e2df2d1e914a8052c604db674da6db6 ""
   "c:/texlive/2024/texmf-var/web2c/pdftex/pdflatex.fmt" 1741303046 3352886 2c0bd1fa81709374a3fc319844a38b29 ""
   "c:/texlive/2024/texmf.cnf" 1741302828 713 e69b156964470283e0530f5060668171 ""
-  "chapters/appendices/arduino-code.tex" 1746977287 212 4374ef002a75206e0bf3762bb55b53d7 ""
+  "chapters/appendices/arduino-code.tex" 1747002106 230 7b12e1178befbc5c796e432b657caf6b ""
   "chapters/appendices/bethebloch-code.tex" 1746982789 399 08b4aa194d996978c2b8f5f564cfc545 ""
-  "chapters/arduino.tex" 1746977746 11690 d7aed66d332c09d04a30b4a02d075228 ""
-  "chapters/bethebloch.tex" 1746984704 6808 b52e5bed471cf6e9625fb7b365fe897b ""
+  "chapters/arduino.tex" 1747002229 11716 866e435ceacb4cab6d13097d5359024c ""
+  "chapters/bethebloch.tex" 1747002079 6816 432e732990a5f418965b73090aa5ace6 ""
   "chapters/preface.tex" 1746803193 1323 601f164a37e62016536628bb35216451 ""
-  "code/arduino-temp.txt" 1746883291 921 cda3765db04211c555b3b3635b138c76 ""
+  "code/arduino-temp.txt" 1747002189 1005 2364274e54d68fd4df7c73f6ab9cf02f ""
   "code/bethe.txt" 1746984342 2757 eb74a272dceaf653f2a73e7d3ef18fbb ""
   "data/arduino/temp-avg.dat" 1746978036 2140 ec3b1073a4c07082e09bfab8e27ffa00 ""
   "data/arduino/temp-time-conv.dat" 1746367075 31773 e92633d4d299d8643554bf9d5c7d52de ""
@@ -351,14 +351,14 @@
   "images/bethebloch/bethe-plot-alpha.tex" 1746983103 760 d714cab3db4f9bc555c654b596ba0d2a ""
   "images/bethebloch/bethe-plot-stop.tex" 1746984178 815 6b6f754e77a18f32ce4dc2a905af205d ""
   "images/title/UniCT-Logo-Nero-quadrato.png" 1746800126 22152 be514ecb73c04cfaca2fa62c6153b547 ""
-  "main.aux" 1746985525 7672 c30140535f8dc941f44ddf38ef4f73d0 "pdflatex"
-  "main.bbl" 1746985521 2288 97c0940ea921d1102230951108a1a525 "bibtex main"
-  "main.out" 1746985525 1737 a993768640db8555d995b6dfd1c8ccb4 "pdflatex"
-  "main.run.xml" 1746985525 2599 709c9099dff9ab366ca49da3c07d2fdb "pdflatex"
+  "main.aux" 1747002233 7826 56f98995a76a890ad7d33b373ec8d4cd "pdflatex"
+  "main.bbl" 1747002196 2288 97c0940ea921d1102230951108a1a525 "bibtex main"
+  "main.out" 1747002233 1737 a993768640db8555d995b6dfd1c8ccb4 "pdflatex"
+  "main.run.xml" 1747002233 2599 709c9099dff9ab366ca49da3c07d2fdb "pdflatex"
   "main.tex" 1746985514 2857 d0192df76b46a8193d0e6e3230719fc8 ""
-  "main.toc" 1746985525 1631 9d656ff4469e21f2fe0bcc8b99ec801b "pdflatex"
+  "main.toc" 1747002233 1631 9d656ff4469e21f2fe0bcc8b99ec801b "pdflatex"
   "misc/settings.tex" 1746981608 4132 8fed8b3033fc0f0d5673fed4e454b7c8 ""
-  "misc/thesisutils.sty" 1746881447 1917 e75ce0d6beede43aa6da5aca8f167193 ""
+  "misc/thesisutils.sty" 1747001992 1960 1cca4cfedbc9feadd5ef4249f2197cde ""
   "misc/titlepage.tex" 1746977844 2612 e81049cd92e7c9cdaf22232bf49e7a15 ""
   "tables/bethe-constants.tex" 1746635890 1289 e31f822bf43493a6298a7c6df67b76a7 ""
   (generated)

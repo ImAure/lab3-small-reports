@@ -59,7 +59,7 @@
             \end{equation}
             dove $\text{\ttfamily A} = \SI{0.5}{\volt}$ e $\text{\ttfamily B} = \SI{100}{\celsius\per\volt}$ sono i fattori di scala.
 
-            La conversione dei valori discreti in temperatura è eseguita dal codice tra le righe \texttt{23} e \texttt{26} applicando la \eqref{eq:ard:temp-conv}. Vengono eseguite $\text{\ttfamily N} = 20$ misure consecuitive di cui è contestualmente calcolata la media che viene a sua volta stampata a schermo. Infine il codice attende il tempo mancante per raggiungere i \SI{30}{\second} dall'inizio del \txtloop.
+            La conversione dei valori discreti in temperatura è eseguita dal codice tra le righe \lnref{ln:ard:calc-start} e \lnref{ln:ard:calc-end} applicando la \eqref{eq:ard:temp-conv}. Vengono eseguite $\text{\ttfamily N} = 20$ misure consecuitive di cui è contestualmente calcolata la media che viene a sua volta stampata a schermo. Infine il codice attende il tempo mancante per raggiungere i \SI{30}{\second} dall'inizio del \txtloop.
 
     \section{Dati}
         Attraverso il codice riportato al punto \Sref{ard:codice} ho misurato la temperatura della stanza ogni \SI{30}{s} per circa cinque ore e mezza; in \figref{fig:ard:raw-temp} sono riportati tutti i dati raccolti, avendo convertito il tempo in minuti.
