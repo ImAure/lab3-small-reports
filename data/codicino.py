@@ -1,9 +1,9 @@
 import numpy as np
 
-data = np.loadtxt("temp_avg.txt", delimiter=',', usecols=[0, 1])
+data = np.loadtxt("data/bethebloch/dati-bethe.txt", delimiter=' ', usecols=[0, 1, 2])
 #t, temp = (data[:, 0] - 21000) / 60000, data[:, 1]
 
-np.savetxt("temp_avg.dat", np.column_stack((data[:, 0], data[:, 1])))
+np.savetxt("data/bethebloch/dati-bethe.dat", np.column_stack((data[:, 0], data[:, 1], data[:, 2])))
 
 #import numpy                as np
 #import matplotlib.pyplot    as plt

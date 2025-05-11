@@ -66,68 +66,13 @@
 
         \begin{figure}
             \centering
-            \begin{tikzpicture}
-                \begin{axis}[
-                    width       = \plotsize,
-                    height      = 0.75\plotsize,
-                    xlabel      = {Tempo (\unit{\min})},
-                    ylabel      = {Temperatura (\unit{\celsius})},
-                    xmin        = 0,  xmax = 330, xtick = {0,30,...,330},
-                    ymin        = 16, ymax = 28,  ytick = {16,18,...,28},
-                    tick align  = outside,
-                    colorbar,
-                    colormap/hot,
-                    point meta  = y
-                ]
-                    \addplot+ [
-                        scatter,
-                        only marks,
-                        mark        = *,
-                        mark size   = 0.5pt,
-                        scatter src = y,
-                    ] table [
-                        x index=0,
-                        y index=1,
-                        col sep=space
-                        ] {code/python/temp_time_conv.dat};
-                \end{axis}
-            \end{tikzpicture}
+            \input{images/arduino/temp-plot-raw.tex}
             \caption{Andamento della temperatura nel tempo}
             \label{fig:ard:raw-temp}
         \end{figure}%
         \begin{figure}
             \centering
-            \begin{tikzpicture}
-                \begin{axis}[
-                    width       = \plotsize,
-                    height      = 0.75\plotsize,
-                    xlabel      = {Tempo (\unit{\min})},
-                    ylabel      = {Temperatura (\unit{\celsius})},
-                    xmin        = 0,  xmax = 330, xtick = {0,30,...,330},
-                    ymin        = 18, ymax = 26,  ytick = {18,...,26},
-                    extra y ticks       = {24.5},
-                    extra y tick labels = {\scriptsize{24.5}},
-                    tick align  = outside,
-                    legend pos  = south east
-                ]
-                    \addplot [
-                        no marks,
-                        draw    = black,
-                    ] table [
-                        x index = 0,
-                        y index = 1,
-                        col sep = space
-                    ] {code/python/temp_avg.dat};
-                    \addplot [
-                        domain  = 0 : 330,
-                        samples = 1000,
-                        color   = red,
-                        no marks
-                    ] {24.5*(1 - exp(-((x+120)/95)))};
-                    \draw[red, dashed] (0, 24.5) -- (330, 24.5);
-                    \legend{Dati, Eq.~\eqref{eq:ard:temp-numerica}}
-                \end{axis}
-            \end{tikzpicture}
+            \input{images/arduino/temp-plot-avg.tex}
             \caption{Temperature mediate in intervalli di \SI{30}{\min}.}
             \label{fig:ard:avg-temp}
         \end{figure}

@@ -18,12 +18,13 @@
 #define X_TAR   0.0020  /* target thickness (cm) */
 
 #define FILE_PATH       "path/to/file"
+#define MAX(A,B)        (A > B) ? A : B
 
 double wmax(double m_e, double beta2, double gamma, double gamma2, double m, double m2);
 double bethe(double k, double m_e, double z_inc, double z_tar, double a_tar, double r_tar, double beta2, double gamma2, double w_max, double i);
 
 int main() {
-    double x, dx, E_tot, T, dT, stop;
+    double x, dx, E_tot, T, stop;
     double gamma, gamma2, beta2, m ,m2;
     int step;
     char buffer[STRLEN];
@@ -40,19 +41,15 @@ int main() {
     m2  = m*m;
 
     for (T = T_INC, x = 0; (x < X_TAR) && (T >= 0); x += dx) {
-        if (T <= 0) fprintf(pf, "%.8f %.8f %.8f\n", x, 0.0, 0.0);
-        else {
-            E_tot = T + M_INC;
-            gamma = E_tot / M_INC;
-            gamma2 = gamma * gamma;
-            beta2 = 1.0 - (1.0 / (gamma2));
+        E_tot = T + M_INC;              |\label{ln:bet:T-start}|
+        gamma = E_tot / M_INC;
+        gamma2 = gamma * gamma;
+        beta2 = 1.0 - (1.0 / (gamma2)); |\label{ln:bet:T-end}|
 
-            stop = bethe(K, M_E, Z_INC, Z_TAR, A_TAR, R_TAR, beta2, gamma2, wmax(ME, beta2, gamma, gamma2, m, m2), I);
+        stop = MAX(bethe(K, M_E, Z_INC, Z_TAR, A_TAR, R_TAR, beta2, gamma2, wmax(ME, beta2, gamma, gamma2, m, m2), I), 0); |\label{ln:bet:bethe-call}|
 
-            dT = stop * dx;
-            fprintf(pf, "%.8f %.8f %.8f\n", x, T, dT);
-            T -= dT;
-        }
+        fprintf(pf, "%.8f %.8f %.8f\n", x, T, stop);
+        T = MAX(T - (stop * dx), 0);
     }
 
     fclose(pf);
@@ -71,6 +68,6 @@ double wmax(double m_e, double beta2, double gamma, double gamma2, double m, dou
     return (2.0 * ME * beta2 * gamma2) / (1.0 + (2.0 * gamma * m) + m2);
 }
 
-double bethe(double k, double m_e, double z_inc, double z_tar, double a_tar, double r_tar, double beta2, double gamma2, double w_max, double i) {
+double bethe(double k, double m_e, double z_inc, double z_tar, double a_tar, double r_tar, double beta2, double gamma2, double w_max, double i) {|\label{ln:bet:bethe-def}|
     return r_tar * (((k * z_inc * z_inc * z_tar) / (a_tar * beta2)) * (0.5 * log((2.0 * m_e * beta2 * gamma2 * w_max) / (i * i * 1.0e-12)) - beta2));
 }

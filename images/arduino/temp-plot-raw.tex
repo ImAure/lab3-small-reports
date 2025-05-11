@@ -1,0 +1,26 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        width       = \plotsize,
+        height      = 0.75\plotsize,
+        xlabel      = {Tempo (\unit{\min})},
+        ylabel      = {Temperatura (\unit{\celsius})},
+        xmin        = 0,  xmax = 330, xtick = {0,30,...,330},
+        ymin        = 16, ymax = 28,  ytick = {16,18,...,28},
+        tick align  = outside,
+        colorbar,
+        colormap/hot,
+        point meta  = y
+    ]
+        \addplot+ [
+            scatter,
+            only marks,
+            mark        = *,
+            mark size   = 0.5pt,
+            scatter src = y,
+        ] table [
+            x index=0,
+            y index=1,
+            col sep=space
+        ] {data/arduino/temp-time-conv.dat};
+    \end{axis}
+\end{tikzpicture}

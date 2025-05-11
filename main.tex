@@ -49,20 +49,20 @@
 % ---- REIMPOSTAZIONI ----
 %\font\nullfont=cmr10
 \begin{document}
-    \input{misc/titlepage}
+    %\input{misc/titlepage}
     \pagestyle{thesis}
 
     \frontmatter
-        \tableofcontents
-        \input{chapters/preface}
+        %\tableofcontents
+        %\input{chapters/preface}
 
     \mainmatter
         \input{chapters/bethebloch}
         \input{chapters/arduino}
         %\input{chapters/multimetro}
         \appendix
-        \input{appendices/bethebloch-code.tex}
-        \input{appendices/arduino-code.tex}
+        \input{chapters/appendices/bethebloch-code.tex}
+        \input{chapters/appendices/arduino-code.tex}
     \backmatter
         \printbibliography  
 

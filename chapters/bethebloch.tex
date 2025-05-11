@@ -25,18 +25,15 @@
     La \eqref{eq:bet:bethe-bloch-1} e la \eqref{eq:bet:wmax} sono valide nell'approssimazione $\num{0.1} \lesssim \beta\gamma \lesssim \num{1000}$ poiché al limite inferiore la velocità del proiettile diventa confrontabile con la ``velocità'' degli elettroni atomici mentre al limite superiore gli effetti radiativi non sono più trascurabili.
 
 \section{La simulazione}
-    Ho scelto di simulare la perdita di energia di una particella $\alpha$ a \SI{5}{\mega\eV} attraverso un foglio di alluminio di spessore\footnote{Dopo aver provato con uno spessore di \SI{0.016}{\milli\meter} e aver constatato che la curva risultava tagliata---la particella non cedeva tutta l'energia all'alluminio---ho scelto di aumentare di poco lo spessore per il gusto di un grafico più completo.} \SI{0.020}{\milli\meter}. Per realizzare la simulazione ho scritto un codice in C che implementa la \eqref{eq:bet:bethe-bloch-1} in modo approssimato.
+    Ho scelto di simulare la perdita di energia di una particella $\alpha$ a \SI{5}{\mega\eV} attraverso un foglio di alluminio di spessore\footnote{Dopo aver provato con uno spessore di \SI{0.016}{\milli\meter} e aver constatato che la curva risultava tagliata---la particella non cedeva tutta l'energia all'alluminio---ho scelto di aumentare di poco lo spessore per il gusto di un grafico più completo.} \SI{0.018}{\milli\meter}. Per realizzare la simulazione ho scritto un codice in C che implementa la \eqref{eq:bet:bethe-bloch-1} in modo approssimato.
     \subsection{Descrizione del codice e dei calcoli}
         Il programma inizia richiedendo da tastiera il numero di intervalli $N$ in cui suddividere lo spessore del materiale; gli altri dati sono tutti precompilati come costanti. 
         
         Assumiamo che in ciascun intervallo di spessore\footnote{Ricordo che in questo caso la $x$ non indica una distanza.} $\dd{s}$ tutte le quantità variabili di nostro interesse siano costanti---velocità, energia, perdita di energia \myetc. Dalla teoria della relatività ristretta scriviamo per l'$n$-esimo intervallo
-        \begin{equation*}
-            \begin{cases}    
-                E_n = T_n + M c^2\\
-                E_n = \gamma_n M c^2
-            \end{cases}
-            \mycomma
-        \end{equation*}
+        \begin{align*}   
+                E_n &= T_n + M c^2 \mycomma \\
+                E_n &= \gamma_n M c^2 \mycomma
+        \end{align*}
         dove $M$ è la massa a riposo della particella incidente, $T_n$ la sua energia cinetica ed $E_n$ la sua energia totale. Note queste ultime due quantità, è possibile calcolare il fattore di Lorentz $\gamma_n$ e $\beta_n^2$ come
         \begin{equation*}
             \gamma_n = \frac{T_n + M c^2}{M c^2}
@@ -45,15 +42,27 @@
             \beta_n^2 = 1 - \frac{1}{\gamma_n^2}
             \myperiod
         \end{equation*}
-        Le quantità appena descritte sono calcolate attraverso il codice nelle righe 45--48.
+        Le quantità appena descritte sono calcolate attraverso il codice nelle righe \ref{ln:bet:T-start}--\ref{ln:bet:T-end}.
 
         Noti $\gamma_n$ e $\beta_n$, è possibile calcolare la perdita di energia media per unità di lunghezza attraverso la \eqref{eq:bet:bethe-bloch-1} moltiplicata per $\rho$. Possiamo in particolare calcolare l'energia cinetica con cui la particella $\alpha$ entra nello strato successivo, $T_{n + 1}$ come
         \begin{equation*}
             T_{n + 1} = T_n + \dd{T_n} = T_n + \rho\, {\left\langle - \dv{E}{x} \right\rangle}_n \dd{s}
             \mycomma
         \end{equation*}
-        essendo naturalmente $\dd{T_n} \leq 0$. Il calcolo di $\rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$ è svolto dalla funzione \texttt{bethe()} chiamata alla riga 49 e definita alla riga 75, con l'ausilio della funzione \texttt{wmax()} che in particolare calcola il termine $W_\text{max}$.
+        essendo naturalmente $\dd{T_n} \leq 0$. Il calcolo di $\rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$ è svolto dalla funzione \texttt{bethe()} chiamata alla riga \ref{ln:bet:bethe-call} e definita alla riga \ref{ln:bet:bethe-def}, con l'ausilio della funzione \texttt{wmax()} che in particolare calcola il termine $W_\text{max}$.
 
         Il calcolo viene quindi ripetuto a partire dalla nuova energia $T_{n + 1}$ per ottenere la perdita di energia attraverso il successivo strato. Per ogni reiterazione il codice stampa su un file la distanza totale percorsa, l'energia cinetica della particella e la quantità $\abs{\dd{T_n}} = \rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$.
 
     \subsection{Risultati della simulazione}
+        \begin{figure}
+            \centering
+            \input{images/bethebloch/bethe-plot-alpha.tex}
+            \input{images/bethebloch/bethe-plot-stop.tex}
+            \caption{In alto l'energia della particella $\alpha$ che diminuisce man mano che la particella penetra l'alluminio. In basso il potere d'arresto con l'evidente picco di Bragg.}
+            \label{fig:bet:alpha}
+        \end{figure}
+        Osserviamo adesso i dati che si ottengono inserendo nel programma un numero arbitrariamente alto di step pari a \num{500}. In \figref{fig:bet:alpha} sono riportati in due grafici i valori dell'energia cinetica della particella $\alpha$ e del potere d'arresto del materiale al variare della distanza percorsa.
+        
+        Dal primo grafico risulta evidente la decrescita dell'energia della particella. Si nota che l'energia cinetica non si annulla del tutto, nonostante si avvicini ragionevolmente a \SI{0}{\mega\eV}: questo può essere dovuto a imprecisioni nel codice come il modo in cui vengono gestiti valori di $T$ negativi e valori di $\dd{T}$ che farebbero aumentare l'energia.
+
+        Nel secondo grafico invece è riportato l'andamento del potere d'arresto, detto comunemente \emph{curva di Bragg}. L'energia depositata dalla particella $\alpha$ è inversamente proporzionale al quadrato della velocità, per questo subito prima del totale arresto si osserva il massimo deposito di energia nel tratto di grafico detto \emph{picco di Bragg}.

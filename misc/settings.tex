@@ -57,7 +57,7 @@
     numberstyle         = \tiny\color{codegray},
     stringstyle         = \color{codepurple},
     basicstyle          = \ttfamily\footnotesize,
-    breakatwhitespace   = false,         
+    breakatwhitespace   = true,         
     breaklines          = true,
     breakindent         = 0pt,                 
     captionpos          = b,                    
@@ -90,7 +90,9 @@
     citecolor=black,            %
 }
 
-\pgfplotsset{compat = 1.18}
+\pgfplotsset{compat = 1.18}%, every axis/.append style={unbounded coords=jump, fpu=true}}
+%\usepgfplotslibrary{external}
+%\tikzexternalize 
 \newlength{\plotsize}
 \setlength{\plotsize}{0.8\textwidth}
 

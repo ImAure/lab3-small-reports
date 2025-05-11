@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.7)  10 MAY 2025 02:18
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.7)  11 MAY 2025 19:31
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1470,119 +1470,66 @@ Package biblatex Warning: BibTeX reported the following issues
 )
 Package biblatex Info: Reference section=0 on input line 51.
 Package biblatex Info: Reference segment=0 on input line 51.
- (./misc/titlepage.tex
-*geometry* verbose mode - [ newgeometry ] result:
-* driver: pdftex
-* paper: a4paper
-* layout: <same size as paper>
-* layoutoffset:(h,v)=(0.0pt,0.0pt)
-* modes: 
-* h-part:(L,W,R)=(72.26999pt, 452.9679pt, 72.26999pt)
-* v-part:(T,H,B)=(72.26999pt, 700.50687pt, 72.26999pt)
-* \paperwidth=597.50787pt
-* \paperheight=845.04684pt
-* \textwidth=452.9679pt
-* \textheight=700.50687pt
-* \oddsidemargin=0.0pt
-* \evensidemargin=0.0pt
-* \topmargin=-33.4738pt
-* \headheight=13.6pt
-* \headsep=19.8738pt
-* \topskip=11.0pt
-* \footskip=27.46295pt
-* \marginparwidth=90.36926pt
-* \marginparsep=7.0pt
-* \columnsep=10.0pt
-* \skip\footins=12.0pt plus 4.0pt minus 4.0pt
-* \hoffset=0.0pt
-* \voffset=0.0pt
-* \mag=1000
-* \@twocolumnfalse
-* \@twosidefalse
-* \@mparswitchfalse
-* \@reversemarginfalse
-* (1in=72.27pt=25.4mm, 1cm=28.453pt)
-
-<images/UniCT-Logo-Nero-quadrato.png, id=55, 594.22pt x 594.22pt>
-File: images/UniCT-Logo-Nero-quadrato.png Graphic file (type png)
-<use images/UniCT-Logo-Nero-quadrato.png>
-Package pdftex.def Info: images/UniCT-Logo-Nero-quadrato.png  used on input line 35.
-(pdftex.def)             Requested size: 135.89174pt x 135.88795pt.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 36.
+ (./chapters/bethebloch.tex
+LaTeX Font Info:    Trying to load font information for U+msa on input line 4.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 36.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 4.
  (c:/texlive/2024/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-
-[1
-
-
-{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc} <./images/UniCT-Logo-Nero-quadrato.png>]) (./main.toc) (./chapters/preface.tex
+) (./tables/bethe-constants.tex)
 
 [1
 
 
 
-]
-Package lettrine.sty Info: Targeted height = 19.15733pt
-(lettrine.sty)             (for loversize=0, accent excluded),
-(lettrine.sty)             Lettrine height = 20.56146pt (I) loversize=0.08;
-(lettrine.sty)             reported on input line 2.
-)
 
-[2
-
-] (./chapters/bethebloch.tex (./tables/bethe-constants.tex)
-
-
-pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.24     \end{equation}
-                        [1
-
-
-]
-LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 55.
+{c:/texlive/2024/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+LaTeX Font Info:    Trying to load font information for T1+zi4 on input line 52.
  (c:/texlive/2024/texmf-dist/tex/latex/inconsolata/t1zi4.fd
 File: t1zi4.fd 2018/01/14 T1/zi4 (Inconsolata)
 )
 LaTeX Font Info:    Font shape `T1/zi4/m/n' will be
-(Font)              scaled to size 10.95pt on input line 55.
+(Font)              scaled to size 10.95pt on input line 52.
 
 
-[2]) (./chapters/arduino.tex
+[2] (./images/bethebloch/bethe-plot-alpha.tex
+PGFPlots: reading {data/bethebloch/bethe-data.dat}
+) (./images/bethebloch/bethe-plot-stop.tex
+PGFPlots: reading {data/bethebloch/bethe-data.dat}
+)
 
-[3{c:/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]
+[3{c:/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]) (./chapters/arduino.tex
 
-[4
+[4]
+
+[5
 
 ]
-<images/arduino/temp-pic.png, id=156, 699.8145pt x 475.17525pt>
+<images/arduino/temp-pic.png, id=128, 699.8145pt x 475.17525pt>
 File: images/arduino/temp-pic.png Graphic file (type png)
 <use images/arduino/temp-pic.png>
 Package pdftex.def Info: images/arduino/temp-pic.png  used on input line 39.
 (pdftex.def)             Requested size: 190.12213pt x 129.08934pt.
-<images/arduino/temp-scheme.pdf, id=157, 133.49875pt x 152.57pt>
+<images/arduino/temp-scheme.pdf, id=130, 133.49875pt x 152.57pt>
 File: images/arduino/temp-scheme.pdf Graphic file (type pdf)
 <use images/arduino/temp-scheme.pdf>
 Package pdftex.def Info: images/arduino/temp-scheme.pdf  used on input line 43.
 (pdftex.def)             Requested size: 190.12213pt x 217.30508pt.
 
 
-[5{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./images/arduino/temp-pic.png> <./images/arduino/temp-scheme.pdf>]
-PGFPlots: reading {code/python/temp_time_conv.dat}
-PGFPlots: reading {code/python/temp_avg.dat}
+[6{c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc} <./images/arduino/temp-pic.png> <./images/arduino/temp-scheme.pdf>] (./images/arduino/temp-plot-raw.tex
+PGFPlots: reading {data/arduino/temp-time-conv.dat}
+) (./images/arduino/temp-plot-avg.tex
+PGFPlots: reading {data/arduino/temp-avg.dat}
+)
 
+[7]
 
-[6]
+[8]) (./chapters/appendices/bethebloch-code.tex
 
-[7]) (./appendices/bethebloch-code.tex
-
-[8] (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
+[9] (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (c:/texlive/2024/texmf-dist/tex/latex/listings/lstmisc.sty
 File: lstmisc.sty 2024/09/23 1.10c (Carsten Heinz)
@@ -1599,51 +1546,45 @@ LaTeX Font Info:    Font shape `TS1/zi4/m/n' will be
 (Font)              scaled to size 9.0pt on input line 8.
 
 
-[9
+[10
 
-{c:/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}])) (./appendices/arduino-code.tex
+{c:/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-ts1.enc}])) (./chapters/appendices/arduino-code.tex
 
-[10] (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
+[11] (c:/texlive/2024/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 ) (./code/arduino-temp.txt))
 
-[11
+[12
 
 ]
-
-[12]
 
 [13
 
 
-]
-\tf@toc=\write7
-\openout7 = `main.toc'.
-
- (./main.aux)
+] (./main.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2020/03/25>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 51FC6896E999FEFF19E0D6EF2A52E8EC;1737.
+(rerunfilecheck)             Checksum: F5CCFEB7812226E85265C0A1E4E66AAD;1577.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 53842 strings out of 473201
- 1186688 string characters out of 5720300
- 2939130 words of memory out of 5000000
- 76127 multiletter control sequences out of 15000+600000
- 584338 words of font info for 95 fonts, out of 8000000 for 9000
+ 53834 strings out of 473201
+ 1186970 string characters out of 5720300
+ 2683356 words of memory out of 5000000
+ 76124 multiletter control sequences out of 15000+600000
+ 582016 words of font info for 92 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 85i,19n,117p,1949b,2883s stack positions out of 10000i,1000n,20000p,200000b,200000s
-<c:/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2986.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on main.pdf (16 pages, 650829 bytes).
+ 85i,19n,117p,1949b,2888s stack positions out of 10000i,1000n,20000p,200000b,200000s
+<c:/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0700.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0900.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
+Output written on main.pdf (13 pages, 685983 bytes).
 PDF statistics:
- 531 PDF objects out of 1000 (max. 8388607)
- 438 compressed objects within 5 object streams
- 171 named destinations out of 1000 (max. 500000)
- 130 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 485 PDF objects out of 1000 (max. 8388607)
+ 401 compressed objects within 5 object streams
+ 161 named destinations out of 1000 (max. 500000)
+ 109 words of extra memory for PDF output out of 10000 (max. 10000000)
 

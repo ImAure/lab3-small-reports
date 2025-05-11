@@ -25,11 +25,11 @@ void loop() {
     }
     tmp = tmp / N;
 
-    // print the measured temperature next to the time associated with that measurement
+    // print the measured temperature next to the corresponding time
     Serial.print(", ");
     Serial.println(tmp);
 
-    // wait for a total of 30 seconds, taking the time up to here into account
+    // keep waiting until 30 seconds have passed 
     dt = millis() - dt;
     delay(30000 - dt);
 }

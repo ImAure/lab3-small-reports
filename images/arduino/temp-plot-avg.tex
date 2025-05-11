@@ -1,0 +1,31 @@
+\begin{tikzpicture}
+    \begin{axis}[
+        width       = \plotsize,
+        height      = 0.75\plotsize,
+        xlabel      = {Tempo (\unit{\min})},
+        ylabel      = {Temperatura (\unit{\celsius})},
+        xmin        = 0,  xmax = 330, xtick = {0,30,...,330},
+        ymin        = 18, ymax = 26,  ytick = {18,...,26},
+        extra y ticks       = {24.5},
+        extra y tick labels = {\scriptsize{24.5}},
+        tick align  = outside,
+        legend pos  = south east
+    ]
+        \addplot [
+            no marks,
+            draw    = black,
+        ] table [
+            x index = 0,
+            y index = 1,
+            col sep = space
+        ] {data/arduino/temp-avg.dat};
+        \addplot [
+            domain  = 0 : 330,
+            samples = 1000,
+            color   = red,
+            no marks
+        ] {24.5*(1 - exp(-((x+120)/95)))};
+        \draw[red, dashed] (0, 24.5) -- (330, 24.5);
+        \legend{Dati, Eq.~\eqref{eq:ard:temp-numerica}}
+    \end{axis}
+\end{tikzpicture}
