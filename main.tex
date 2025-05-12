@@ -1,3 +1,6 @@
+%
+%   ATTENZIONARE INCERTEZZE NELLA TABELLA BETHE-BLOCH!! 4(5) VUOL DIRE \PM 5
+%
 \documentclass[oneside, a4paper, 11pt, final]{memoir}
 \usepackage[T1]{fontenc}                % per il font
 \usepackage[utf8]{inputenc}             % per l'input
@@ -30,10 +33,7 @@
 \usepackage{emptypage}              % non se se serve
 \usepackage{lettrine}               % per le lettere belle a inizio capitolo
 %\usepackage{yfonts}                 % per le lettere belle a inizio capitolo
-\input Rothdn.fd
-\newcommand*\initfamily{\usefont{U}{Rothdn}{xl}{n}}
-\DeclareFontFamily{U}{yinit}{}
-\DeclareFontShape{U}{yinit}{m}{n}{<-> yinit}{}
+
 \usepackage{hyperref}               % fa le cross reference cliccabili dentro al testo (ad esempio da indice a capitolo)
                                     % ======================================
 
@@ -41,11 +41,11 @@
 \usepackage{csquotes}
 \usepackage[backend = bibtex, style = numeric-comp, maxbibnames = 5]{biblatex}
   
-
 \usepackage{misc/thesisutils}
-\input{misc/settings}
+
 % ---- REIMPOSTAZIONI ----
-%\font\nullfont=cmr10
+\input{misc/settings}
+
 \begin{document}
     \input{misc/titlepage}
     \pagestyle{thesis}

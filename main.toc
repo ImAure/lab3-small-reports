@@ -10,4 +10,4 @@
 \contentsline {chapter}{\chapternumberline {2}Misura di resistenze con un multimetro digitale}{5}{chapter.2}%
 \contentsline {section}{\numberline {2.1}Il multimetro}{5}{section.2.1}%
 \contentsline {section}{\numberline {2.2}Resistori}{5}{section.2.2}%
-\contentsline {chapter}{Bibliografia}{6}{section*.6}%
+\contentsline {chapter}{Bibliografia}{7}{section*.8}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.7)  12 MAY 2025 18:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.26 (TeX Live 2024) (preloaded format=pdflatex 2025.3.7)  13 MAY 2025 01:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -951,8 +951,6 @@ Loading lettrine.cfg
 (c:/texlive/2024/texmf-dist/tex/latex/lettrine/lettrine.cfg)
 \Lettrine@tweaks=\toks67
 \Llist@everypar=\toks68
-) (c:/texlive/2024/texmf-dist/tex/latex/initials/Rothdn.fd
-File: Rothdn.fd 2003/04/02 Font definition file for U/Rothdn
 ) (c:/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
  (c:/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -1326,7 +1324,10 @@ Sidefoothsep and sidefootwidth: 7pt and 49pt
 Sidefootvsep and sidefootheight: 13.6pt and 594.32022pt
 ******************************************************
 
-Package hyperref Info: Option `colorlinks' set `true' on input line 107.
+(c:/texlive/2024/texmf-dist/tex/latex/initials/Rothdn.fd
+File: Rothdn.fd 2003/04/02 Font definition file for U/Rothdn
+)
+Package hyperref Info: Option `colorlinks' set `true' on input line 109.
 \plotsize=\skip276
 )
 Package csquotes Info: Checking for multilingual support...
@@ -1575,13 +1576,30 @@ PGFPlots: reading {data/bethebloch/bethe-data.dat}
 
 [3{c:/texlive/2024/texmf-dist/fonts/enc/dvips/inconsolata/i4-t1-0.enc}]) (./chapters/multimetro.tex
 
-[4])
+[4]
+Package lettrine.sty Info: Targeted height = 19.15733pt
+(lettrine.sty)             (for loversize=0, accent excluded),
+(lettrine.sty)             Lettrine height = 20.56146pt (T) loversize=0.08;
+(lettrine.sty)             reported on input line 2.
+<images/multimetro/resistori.jpg, id=140, 842.1864pt x 561.297pt>
+File: images/multimetro/resistori.jpg Graphic file (type jpg)
+<use images/multimetro/resistori.jpg>
+Package pdftex.def Info: images/multimetro/resistori.jpg  used on input line 12.
+(pdftex.def)             Requested size: 155.19763pt x 103.43578pt.
+<images/multimetro/resistore.jpg, id=141, 542.025pt x 361.35pt>
+File: images/multimetro/resistore.jpg Graphic file (type jpg)
+<use images/multimetro/resistore.jpg>
+Package pdftex.def Info: images/multimetro/resistore.jpg  used on input line 14.
+(pdftex.def)             Requested size: 155.19763pt x 103.46552pt.
+ (./tables/multimeter-data.tex))
 
 [5
 
 {c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 
-[6
+[6 <./images/multimetro/resistori.jpg> <./images/multimetro/resistore.jpg>]
+
+[7
 
 
 ]
@@ -1598,24 +1616,24 @@ L3 programming layer <2020/03/25>
 LaTeX Warning: There were undefined references.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: ECEBBFED54A1AE121DAC082BD6A05790;1339.
+(rerunfilecheck)             Checksum: 1D888C04C805694BF2E2B5AB2290EAC2;1339.
 Package logreq Info: Writing requests to 'main.run.xml'.
 \openout1 = `main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52939 strings out of 473201
- 1175020 string characters out of 5720300
- 2355137 words of memory out of 5000000
- 75385 multiletter control sequences out of 15000+600000
+ 52966 strings out of 473201
+ 1175855 string characters out of 5720300
+ 2355367 words of memory out of 5000000
+ 75406 multiletter control sequences out of 15000+600000
  581715 words of font info for 88 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  85i,13n,117p,1909b,2197s stack positions out of 10000i,1000n,20000p,200000b,200000s
 <c:/texlive/2024/texmf-dist/fonts/type1/public/inconsolata/Inconsolata-zi4r.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/cm/cmti9.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2074.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfcc1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0600.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfrm2986.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb><c:/texlive/2024/texmf-dist/fonts/type1/public/cm-super/sfti1095.pfb>
-Output written on main.pdf (9 pages, 509384 bytes).
+Output written on main.pdf (10 pages, 1418584 bytes).
 PDF statistics:
- 289 PDF objects out of 1000 (max. 8388607)
- 214 compressed objects within 3 object streams
- 34 named destinations out of 1000 (max. 500000)
- 90 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 302 PDF objects out of 1000 (max. 8388607)
+ 224 compressed objects within 3 object streams
+ 37 named destinations out of 1000 (max. 500000)
+ 100 words of extra memory for PDF output out of 10000 (max. 10000000)
 

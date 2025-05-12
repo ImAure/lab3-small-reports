@@ -330,7 +330,6 @@ INPUT c:/texlive/2024/texmf-dist/tex/latex/l3packages/xfp/xfp.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/lettrine/lettrine.cfg
 INPUT c:/texlive/2024/texmf-dist/tex/latex/lettrine/lettrine.cfg
 INPUT c:/texlive/2024/texmf-dist/tex/latex/lettrine/lettrine.cfg
-INPUT c:/texlive/2024/texmf-dist/tex/latex/initials/Rothdn.fd
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT c:/texlive/2024/texmf-dist/tex/latex/hyperref/hyperref.sty
 INPUT c:/texlive/2024/texmf-dist/tex/generic/kvdefinekeys/kvdefinekeys.sty
@@ -427,6 +426,7 @@ INPUT ./misc/settings.tex
 INPUT misc/settings.tex
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecrm2488.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecbx2488.tfm
+INPUT c:/texlive/2024/texmf-dist/tex/latex/initials/Rothdn.fd
 INPUT c:/texlive/2024/texmf-dist/tex/latex/graphics/color.sty
 INPUT ./main.aux
 INPUT ./main.aux
@@ -563,6 +563,19 @@ INPUT ./chapters/multimetro.tex
 INPUT chapters/multimetro.tex
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/ecti0800.tfm
 INPUT c:/texlive/2024/texmf-dist/fonts/tfm/jknappen/ec/tcti0800.tfm
+INPUT ./images/multimetro/resistori.jpg
+INPUT ./images/multimetro/resistori.jpg
+INPUT ./images/multimetro/resistori.jpg
+INPUT ./images/multimetro/resistori.jpg
+INPUT ./images/multimetro/resistori.jpg
+INPUT ./images/multimetro/resistore.jpg
+INPUT ./images/multimetro/resistore.jpg
+INPUT ./images/multimetro/resistore.jpg
+INPUT ./images/multimetro/resistore.jpg
+INPUT ./images/multimetro/resistore.jpg
+INPUT ./tables/multimeter-data.tex
+INPUT ./tables/multimeter-data.tex
+INPUT tables/multimeter-data.tex
 INPUT c:/texlive/2024/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
 OUTPUT main.toc
 INPUT main.aux
