@@ -25,7 +25,7 @@ double bethe(double k, double m_e, double z_inc, double z_tar, double a_tar, dou
 
 int main() {
     double x, dx, E_tot, T, stop;
-    double gamma, gamma2, beta2, m ,m2;
+    double gamma, gamma2, beta2, m, m2;
     int step;
     char buffer[STRLEN];
     FILE *pf;

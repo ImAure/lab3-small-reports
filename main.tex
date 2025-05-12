@@ -39,13 +39,11 @@
 
 \usepackage{xurl}
 \usepackage{csquotes}
-\usepackage[backend = bibtex, style = numeric-comp]{biblatex}
-    \addbibresource{misc/references.bib}
+\usepackage[backend = bibtex, style = numeric-comp, maxbibnames = 5]{biblatex}
+  
 
 \usepackage{misc/thesisutils}
 \input{misc/settings}
-\DeclareFontFamily{U}{yinit}{}
-\DeclareFontShape{U}{yinit}{m}{n}{<-> yinit}{}
 % ---- REIMPOSTAZIONI ----
 %\font\nullfont=cmr10
 \begin{document}
@@ -58,11 +56,11 @@
 
     \mainmatter
         \input{chapters/bethebloch}
-        \input{chapters/arduino}
-        %\input{chapters/multimetro}
+        %\input{chapters/arduino}
+        \input{chapters/multimetro}
         \appendix
-        \input{chapters/appendices/bethebloch-code.tex}
-        \input{chapters/appendices/arduino-code.tex}
+        %\input{chapters/appendices/bethebloch-code.tex}
+        %\input{chapters/appendices/arduino-code.tex}
     \backmatter
         \printbibliography  
 

@@ -7,6 +7,8 @@
 \setulmarginsandblock{1.5in}{*}{1.4}    % setta i margini superiore e inferiore {superiore}{inferiore}{rapporto}
 \checkandfixthelayout                   % does the magic
 
+
+
 %=========================%
 %   HEADER & PAGESTYLES   %
 %=========================%
@@ -37,6 +39,18 @@
 
 \chapterstyle{hangnum}
 \aliaspagestyle{chapter}{empty}                                             % toglie il numero di pagina nelle pagine con il nome del capitolo.
+
+
+
+%==============%
+%   INITIALS   %
+%==============%
+
+\DeclareFontFamily{U}{yinit}{}
+\DeclareFontShape{U}{yinit}{m}{n}{<-> yinit}{}
+\newcommand{\initcolor}{purple}
+
+
 
 %==============%
 %   LISTINGS   %
@@ -74,6 +88,8 @@
 }
 \lstset{style=mystyle}
 
+
+
 %===============%
 %   NUMBERING   %
 %===============%
@@ -90,10 +106,22 @@
     citecolor=black,            %
 }
 
+
+
+%===========%
+%   PLOTS   %
+%===========%
+
 \pgfplotsset{compat = 1.18}%, every axis/.append style={unbounded coords=jump, fpu=true}}
 %\usepgfplotslibrary{external}
 %\tikzexternalize 
 \newlength{\plotsize}
 \setlength{\plotsize}{0.8\textwidth}
 
-\newcommand{\initcolor}{purple}
+
+
+%==================%
+%   BIBLIOGRAPHY   %
+%==================%
+
+\addbibresource{misc/references.bib}
