@@ -2,12 +2,9 @@
 \babel@toc {italian}{}\relax 
 \contentsline {chapter}{Indice}{i}{section*.1}%
 \contentsline {chapter}{Sommario}{ii}{chapter*.2}%
-\contentsline {chapter}{\chapternumberline {1}Implementazione Numerica della Formula di Bethe--Bloch}{1}{chapter.1}%
-\contentsline {section}{\numberline {1.1}Il modello}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}La simulazione}{2}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Descrizione del codice e dei calcoli}{2}{subsection.1.2.1}%
-\contentsline {subsection}{\numberline {1.2.2}Risultati della simulazione}{4}{subsection.1.2.2}%
-\contentsline {chapter}{\chapternumberline {2}Misura di resistenze con un multimetro digitale}{5}{chapter.2}%
-\contentsline {section}{\numberline {2.1}Il multimetro}{5}{section.2.1}%
-\contentsline {section}{\numberline {2.2}Resistori}{5}{section.2.2}%
-\contentsline {chapter}{Bibliografia}{7}{section*.8}%
+\contentsline {chapter}{\chapternumberline {1}Misura di resistenze con un multimetro digitale}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Il multimetro}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Resistori}{1}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Considerazioni preliminari}{1}{subsection.1.2.1}%
+\contentsline {subsection}{\numberline {1.2.2}Test del $\chi ^2$}{2}{subsection.1.2.2}%
+\contentsline {chapter}{Bibliografia}{4}{section*.7}%
