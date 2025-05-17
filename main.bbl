@@ -17,6 +17,32 @@
 \endgroup
 
 \datalist[entry]{nty/global//global/global/global}
+  \entry{Griffiths2012-qz}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=GDJ}{%
+         family={Griffiths},
+         familyi={G\bibinitperiod},
+         given={David\bibnamedelima J},
+         giveni={D\bibinitperiod\bibinitdelim J\bibinitperiod},
+      }}%
+    }
+    \list{publisher}{1}{%
+      {Pearson}%
+    }
+    \strng{namehash}{GDJ1}
+    \strng{fullhash}{GDJ1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{G}
+    \field{sortinithash}{G}
+    \field{edition}{4}
+    \field{title}{Introduction to Electrodynamics}
+    \list{location}{1}{%
+      {Upper Saddle River, NJ}%
+    }
+    \field{year}{2012}
+  \endentry
+
   \entry{chi2-table}{online}{}{}
     \name{author}{1}{}{%
       {{hash=N}{%

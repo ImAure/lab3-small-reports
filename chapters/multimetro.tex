@@ -1,10 +1,21 @@
-\chapter{Misura di resistenze con un multimetro digitale}\label{ch:mult}
-    \lettrine[loversize=0.08, lines=2]{T}{ra le esperienze} svolte con il multimetro digitale riporto la misura delle resistenze di vari oggetti, tra cui un anello, il corpo umano e alcuni resistori.
+\newcommand{\dvm}{DVM841}
+\newcommand{\vell}{Vellemann\textsuperscript{\tiny\textregistered}}
 
-    Ai resistori dedico una sezione più approfondita in quanto ho preso \num{50} misure su resistori distinti---ma teoricamente con resistenza uguale---per verificare la distribuzione delle misure di resistenza.
+\chapter{Misura di resistenze con un multimetro digitale}\label{ch:mult}
+    \lettrine[loversize=0.08, lines=2]{T}{ra le esperienze} svolte con il multimetro digitale riporto la misura delle resistenze di vari oggetti, tra cui un anello e alcuni resistori, misurati sia individualmente che in parallelo.
+
+    Ai resistori dedico una sezione più approfondita in quanto ho preso \num{50} misure su resistori distinti---ma teoricamente con resistenza uguale---per verificare la distribuzione delle misure.
 
     \section{Il multimetro}
-        Lo strumento utilizzato per l'interezza dell'esperienza è un multimetro digitale della serie \emph{DVM841} della \emph{Velleman\textsuperscript{\textregistered}} \cite{velleman-dvm841}. Il multimetro è in grado di misurare tensione e corrente continua e alternata, resistenza, frequenza e temperatura. Avendo una risoluzione di \num{2000} punti, il display del multimetro può visualizzare un massimo di \num{1999} unità.
+        Lo strumento utilizzato per l'interezza dell'esperienza è un multimetro digitale della serie \dvm\ della \vell\ \cite{velleman-dvm841}, \figref{fig:mul:multimetro}. Il multimetro è in grado di misurare tensione e corrente continua e alternata, resistenza, frequenza e temperatura. Avendo una risoluzione di \num{2000} punti, il display del multimetro può visualizzare un massimo di \num{1999} unità.
+        \begin{figure}
+            \centering
+            \includegraphics[width = 0.4\textwidth]{images/multimetro/multimetro.jpg}
+            \caption{Il multimetro \dvm\ della \vell\ usato per l'esperienza.}
+            \label{fig:mul:multimetro}
+        \end{figure}
+
+        L'apparecchio è alimentato a batteria e presenta tre prese a cui si possono collegare due puntali con gli appositi spinotti. Volendo misurare solo resistenze, ho usato solo la presa \unit{\volt\ohm\milli\ampere} e la messa a terra.
 
     \section{Resistori}\label{s:mul:resistori}
         Il kit presenta $N = \num{50}$ resistori distinti---come quelli in \figref{fig:mul:resistore}---il cui codice colore restituisce un valore\footnote{Lo si può dedurre da qualunque legenda fedele allo standard IEC 60062.} teorico di $\SI{820}{\ohm} \pm \SI{5}{\%}$, ovvero \SI{820(40)}{\ohm}.
@@ -108,13 +119,26 @@
                 Osservando i dati si nota che la resistenza equivalente osservata $R_\text{o}$ è sempre maggiore della resistenza teorica $R_\text{e}$. Questo può essere dovuto alla presenza di una resistenza di contatto con la breadboard, che non ho considerato nel calcolo di $R_\text{e}$.
 
             \subsection{Resistività di un anello}
-                Ho misurato la resistenza di un anello metallico che suppongo essere in argento. L'anello è di forma circolare ma presenta un'apertura in basso
-                Ho calcolato la resistività $\rho_{1,2}$ dei due materiali a partire dalle resistenze misurate $R_{1,2}$ dalle dimensioni dell'anello, misurate con un calibro digitale. Ho ricavato l'espressione per la resistività a partire dalla legge di Ohm:
-                \begin{equation*}
+                Ho misurato la resistenza di un anello metallico che suppongo essere in argento. L'anello è di forma circolare ma presenta un'apertura in basso, per cui ho effettuato la misura della resistenza poggiando i puntali del multimetro in corrispondenza dei punti estremi dell'apertura, come in \figref{fig:mul:anello}. Ho posto il multimetro alla portata di \SI{200}{\ohm} disponendo di una sensibilità $\delta R_\text = \SI{0.1}{\ohm}$; la resistenza misurata è quindi $R = \SI{0.5}{\ohm}$.
+
+                Dalla seconda legge di Ohm possiamo ricavare la resistività del materiale che compone l'anello, supponendo che esso sia omogeneo e isotropo. La resistività è definita come
+                \begin{equation}
                     \rho = R\frac{S}{L}
                     \mycomma
+                    \label{eq:mul:ohm-law}
+                \end{equation}
+                dove $S$ è la sezione dell'anello e $L$ la lunghezza equivalente ottenuta rettificando la circonferenza.
+
+                L'anello ha una raggio medio di $r = \SI{2.1(1)}{\centi\meter}$, uno spessore di $d = \SI{0.3(1)}{\centi\meter}$ e un'altezza pari a $h = \SI{0.8(1)}{\centi\meter}$. La sezione dell'anello è quindi $S = hd = \SI{0.24(11)}{\centi\meter\squared}$, mentre, denotando con $\ell = \SI{1.0(1)}{\centi\meter}$ la distanza che separa i due puntali e che quindi non partecipa alla resistenza, la lunghezza equivalente è $L = 2\pi r - \ell = \SI{12.3(7)}{\centi\meter}$.
+
+                Dal momento che l'anello è formato da fili cilindrici intrecciati, la sezione $S$ rappresenta in realtà una sovrastima della sezione effettiva. Il rapporto tra la superficie di un cerchio di raggio $d/2$ e quella di un quadrato di lato $d$ è pari a $\pi / 4$, per cui la sezione effettiva è $S_\text{eff} = S \pi / \num{4} = \SI{0.19(8)}{\centi\meter\squared}$.
+                
+                La resistività dell'anello calcolata dalla \eqref{eq:mul:ohm-law} è quindi
+                \begin{equation*}
+                    \rho = R\frac{S_\text{eff}}{L} = \SI{0.0077(55)}{\ohm\centi\meter} = \SI{7.7(55)e-5}{\ohm\meter}
+                    \mycomma
                 \end{equation*}
-                dove $S$ è la sezione dell'anello e $L$ la lunghezza equivalente.
+                valore che si discosta di diversi ordini di grandezza da quello noto di \SI{1.59e-8}{\ohm\meter} \cite{Griffiths2012-qz}. Un risultato così elevato può essere attribuito sia all'incertezza sulle misure geometriche, sia al fatto che l'anello non sia composto da argento puro, sia alla presenza di ossidazione superficiale o di cattivi contatti tra i fili intrecciati che ne aumentano la resistenza complessiva.
                 \begin{figure}
                     \centering
                     \includegraphics[width=0.4\textwidth]{images/multimetro/anello.jpg}
@@ -122,5 +146,4 @@
                     \label{fig:mul:anello}
                 \end{figure}
 
-                I due anelli hanno forma diversa. Quello in acciaio
 

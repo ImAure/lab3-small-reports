@@ -4,10 +4,10 @@
 \contentsline {chapter}{Sommario}{ii}{chapter*.2}%
 \contentsline {chapter}{\chapternumberline {1}Misura di resistenze con un multimetro digitale}{1}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Il multimetro}{1}{section.1.1}%
-\contentsline {section}{\numberline {1.2}Resistori}{1}{section.1.2}%
-\contentsline {subsection}{\numberline {1.2.1}Considerazioni preliminari}{1}{subsection.1.2.1}%
+\contentsline {section}{\numberline {1.2}Resistori}{2}{section.1.2}%
+\contentsline {subsection}{\numberline {1.2.1}Considerazioni preliminari}{2}{subsection.1.2.1}%
 \contentsline {subsection}{\numberline {1.2.2}Test del $\chi ^2$}{3}{subsection.1.2.2}%
-\contentsline {section}{\numberline {1.3}Altre misure di resistenze}{3}{section.1.3}%
+\contentsline {section}{\numberline {1.3}Altre misure di resistenze}{4}{section.1.3}%
 \contentsline {subsection}{\numberline {1.3.1}Resistenze in parallelo}{4}{subsection.1.3.1}%
-\contentsline {subsection}{\numberline {1.3.2}Resistività di un anello}{4}{subsection.1.3.2}%
-\contentsline {chapter}{Bibliografia}{6}{section*.10}%
+\contentsline {subsection}{\numberline {1.3.2}Resistività di un anello}{5}{subsection.1.3.2}%
+\contentsline {chapter}{Bibliografia}{7}{section*.11}%
