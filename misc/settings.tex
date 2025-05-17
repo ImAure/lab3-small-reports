@@ -32,14 +32,14 @@
 }
 
 %% se oneside:
-    \makeoddhead{thesis}{\bfseries\leftmark}{}{\bfseries \thepage}
+    \makeoddhead{thesis}{\bfseries\leftmark}{}{\bfseries\thepage}
 %% se twoside:
     % \makeevenhead{thesis}{\bfseries\thepage}{}{\bfseries\leftmark}
     % \makeoddhead{thesis}{\bfseries\rightmark}{}{\bfseries
 
 \chapterstyle{hangnum}
 \aliaspagestyle{chapter}{empty}                                             % toglie il numero di pagina nelle pagine con il nome del capitolo.
-
+\addto\captionsitalian{\renewcommand{\chaptername}{Esperimento}}
 
 
 %==============%

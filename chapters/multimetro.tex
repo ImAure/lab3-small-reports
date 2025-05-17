@@ -1,11 +1,12 @@
 \chapter{Misura di resistenze con un multimetro digitale}\label{ch:mult}
-    \lettrine[loversize=0.08, lines=2]{T}{ra le esperienze} svolte con il multimetro digitale riporto la misura delle resistenze di alcuni materiali, tra cui anelli metallici, il corpo umano e alcuni resistori.
+    \lettrine[loversize=0.08, lines=2]{T}{ra le esperienze} svolte con il multimetro digitale riporto la misura delle resistenze di vari oggetti, tra cui un anello, il corpo umano e alcuni resistori.
 
     Ai resistori dedico una sezione più approfondita in quanto ho preso \num{50} misure su resistori distinti---ma teoricamente con resistenza uguale---per verificare la distribuzione delle misure di resistenza.
 
     \section{Il multimetro}
         Lo strumento utilizzato per l'interezza dell'esperienza è un multimetro digitale della serie \emph{DVM841} della \emph{Velleman\textsuperscript{\textregistered}} \cite{velleman-dvm841}. Il multimetro è in grado di misurare tensione e corrente continua e alternata, resistenza, frequenza e temperatura. Avendo una risoluzione di \num{2000} punti, il display del multimetro può visualizzare un massimo di \num{1999} unità.
-    \section{Resistori}
+
+    \section{Resistori}\label{s:mul:resistori}
         Il kit presenta $N = \num{50}$ resistori distinti---come quelli in \figref{fig:mul:resistore}---il cui codice colore restituisce un valore\footnote{Lo si può dedurre da qualunque legenda fedele allo standard IEC 60062.} teorico di $\SI{820}{\ohm} \pm \SI{5}{\%}$, ovvero \SI{820(40)}{\ohm}.
         \begin{figure}
             \centering
@@ -25,14 +26,29 @@
         \end{table}
 
         \subsection{Considerazioni preliminari}
-            Notiamo subito che la resistenza media è $R_\text{m} = \SI{808.6}{\ohm}$ con una deviazione standard di $\sigma = \SI{2.3}{\ohm}$, l'errore sul valor medio è quindi $\sigma_R = \sigma / \sqrt{N-1} = \SI{0.33}{\ohm}$, che è confrontabile con la sensibilità dello strumento di \SI{1}{\ohm}.
+            Notiamo subito che la resistenza media è $R_\text{m} = \SI{808.6}{\ohm}$ con una deviazione standard di $\sigma = \SI{2.3}{\ohm}$; l'errore sul valor medio è quindi $\sigma_R = \sigma / \sqrt{N-1} = \SI{0.33}{\ohm}$, che è confrontabile con la sensibilità dello strumento $\delta R_\text{s} = \SI{1}{\ohm}$.
             
             Questi valori rientrano completamete nell'intervallo fornito dal costruttore; tuttavia, il fatto che tutte le misure siano inferiori a \SI{820}{\ohm} suggerisce la presenza di un errore sistematico.\footnote{Se si trattasse di errori casuali dovuti a imprecisioni di fabbricazione, mi aspetterei letture sia al di sopra che al di sotto del valore di riferimento; è poco probabile che tutte le resistenze devino dal valore teorico allo stesso modo a meno che non si sia verificato un evento che ha alterato tutte le resistenze---un lotto prodotto con lo stesso materiale meno resistente, seppur entro il margine del \SI{5}{\%}, o deterioramento nel tempo.}
 
             Il dato di resistenza minima di \SI{797}{\ohm} può essere scartato secondo il cirerio di Chauvenet. Esso dista più di $4\sigma$ dal valor medio (ca. $\num{4.17}\sigma$) e il numero di dati atteso\footnote{Per il calcolo di questa probabilità ho fatto riferimento a [INSERIRE TAYLOR!!!]} su un campione di $N = 50$ elementi a una distanza maggiore o uguale a $4\sigma$ è pari a $\num{0.003} \ll 1/2$. Scartando questo dato la nuova media e la nuova deviazione standard sono:
+            \begin{equation*}
+                R_\text{m} = \SI{808.8}{\ohm}
+                \qquad
+                \sigma = \SI{1.633}{\ohm}
+                \myperiod
+            \end{equation*}
+            La nuova incertezza sul valor medio è $\sigma_R = \SI{0.24}{\ohm} \lesssim \delta R_\text{s} = \SI{1}{\ohm}$, che è ancora confrontabile con la sensibilità dello strumento. Se tuttavia consideriamo la somma in quadratura delle due incertezze troviamo
+            \begin{equation*}
+                \overline{\sigma}
+                = \sqrt{\sigma_R^2 + \delta R_\text{s}^2}
+                = \SI{1.02}{\ohm}
+                \simeq \SI{1}{\ohm}
+                \mycomma
+            \end{equation*}
+            per cui assumo $\overline{\sigma} = \SI{1}{\ohm}$ come incertezza sul valor medio.
 
         \subsection{Test del $\chi^2$}
-            Supponiamo che le misure seguano la distribuzione normale centrata in $R_\text{m}$ e di ampiezza $\sigma$:
+            Supponiamo che le misure seguano, con una significatività $\alpha = \num{0.05}$, la distribuzione normale centrata in $R_\text{m}$ e di ampiezza $\sigma$:
             \begin{equation*}
                 N\pqty{x; R_\text{m}, \sigma}
                 = \frac{1}{\sqrt{2\pi\sigma^2}} \exp[ -\frac{1}{2}\pqty{\frac{x - R_\text{m}}{\sigma}}^2]
@@ -47,4 +63,64 @@
                 \label{tab:mul:bin-istogramma}
             \end{table}
 
-            Da qui eseguo il test nell'usuale modo: converto gli esetremi dell'intervallo in variabili normali standardizzate sottraendo la media e dividendo per la deviazione standard, attraverso un foglio di calcolo trovo il valore dell'integrale della gaussiana per ciascun intervallo, moltiplico tale valore per la dimensione del campione $N = 49$ per trovare i valori attesi $E_k$.
+            Nella stessa tabella sono riportati i valori attesi $E_k$ per ciascun bin, calcolati moltiplicando la dimensione del campione $N = 49$ per l'integrale di ciascun intervallo della gaussiana. Ho ottenuto gli intervalli convertendo gli estremi in variabili normali standardizzate e ho ricavato l'integrale attraverso un foglio di calcolo.
+
+            È adesso possibile calcolare il $\chi^2$ per definizione:
+            \begin{equation*}
+                \chi^2
+                = \sum_{k=1}^{8} \frac{(O_k - E_k)^2}{E_k}
+                = \num{12.98}
+                \myperiod
+            \end{equation*}
+            essendo $d = n - c = 6$ il numero di gradi di libertà, $n = 8$ il numero di bin e $c = 2$ il numero di parametri stimati---media e deviazione standard. Il valore critico per il test del $\chi^2$ è $\chi^2_\text{crit}= \num{12.59}$ \cite{chi2-table}, posso quindi rigettare l'ipotesi nulla che le misure seguano la distribuzione gaussiana.
+
+    \section{Altre misure di resistenze}
+            Riporto altre misure eseguite con il multimetro su vari materiali.
+            
+            \subsection{Resistenze in parallelo}
+                Usando $n = 1, 2, 3$ resistori scelti casualmente tra quelli studiati al punto \Sref{s:mul:resistori}, ho misurato la resistenza equivalente $R_\text{o}$ dei resistori montati in parallelo su una breadboard come in \figref{fig:mul:res-parallelo}. I risultati sono riportati in \tabref{tab:mul:res-parallelo}, insieme ai valori teorici, calcolati a partire dalla $R_\text{m}$ del punto precedente come
+                \begin{equation*}
+                    \frac{1}{R_\text{e}}
+                    = \frac{n}{R_\text{m}}
+                    \iff R_\text{e} = \frac{R_\text{m}}{n}
+                    \mycomma
+                \end{equation*}
+                e alle incertezze $\delta R_\text{s}$ e $\delta R_\text{e}$. La prima è ancora la sensibilità dello strumento, mentre la seconda è calcolata propagando l'incertezza $\overline{\sigma}$ sul valor medio $R_\text{m}$ trovata al punto \Sref{s:mul:resistori}:
+                \begin{equation*}
+                    \delta R_\text{e}
+                    = \abs{\pdv{R_\text{e}}{R}}\overline{\sigma}
+                    = \frac{\overline{\sigma}}{n}
+                    \mycomma
+                \end{equation*}
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.4\textwidth]{images/multimetro/res-parallelo.png}
+                    \caption{Illustrazione rappresentativa dei resistori montati in parallelo su una breadboard.}
+                    \label{fig:mul:res-parallelo}
+                \end{figure}
+                \begin{table}
+                    \centering
+                    \input{tables/multimetro/res-parallelo.tex}
+                    \caption{Resistenze equivalenti misurate su resistori in parallelo e relative incertezze. Tutti i valori sono espressi in \unit{\ohm}.}
+                    \label{tab:mul:res-parallelo}
+                \end{table}
+
+                Osservando i dati si nota che la resistenza equivalente osservata $R_\text{o}$ è sempre maggiore della resistenza teorica $R_\text{e}$. Questo può essere dovuto alla presenza di una resistenza di contatto con la breadboard, che non ho considerato nel calcolo di $R_\text{e}$.
+
+            \subsection{Resistività di un anello}
+                Ho misurato la resistenza di un anello metallico che suppongo essere in argento. L'anello è di forma circolare ma presenta un'apertura in basso
+                Ho calcolato la resistività $\rho_{1,2}$ dei due materiali a partire dalle resistenze misurate $R_{1,2}$ dalle dimensioni dell'anello, misurate con un calibro digitale. Ho ricavato l'espressione per la resistività a partire dalla legge di Ohm:
+                \begin{equation*}
+                    \rho = R\frac{S}{L}
+                    \mycomma
+                \end{equation*}
+                dove $S$ è la sezione dell'anello e $L$ la lunghezza equivalente.
+                \begin{figure}
+                    \centering
+                    \includegraphics[width=0.4\textwidth]{images/multimetro/anello.jpg}
+                    \caption{Fotografia dell'anello. I tratti in rosso indicano il punti in cui sono stati poggiati i puntali del multimetro.}
+                    \label{fig:mul:anello}
+                \end{figure}
+
+                I due anelli hanno forma diversa. Quello in acciaio
+
