@@ -21,45 +21,52 @@ Database file #1: main-blx.bib
 Database file #2: misc/references.bib
 Biblatex version: 3.20
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
+Warning--you've exceeded 500, the entry-string-size, for entry PhysRevD-110-030001
+while executing--line 2700 of file biblatex.bst
+*Please notify the bibstyle designer*
+Warning--you've exceeded 500, the entry-string-size, for entry PhysRevD-110-030001
+while executing--line 2728 of file biblatex.bst
+*Please notify the bibstyle designer*
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 1 entry,
+You've used 6 entries,
             6402 wiz_defined-function locations,
-            1203 strings with 8982 characters,
-and the built_in function-call counts, 1534 in all, are:
-= -- 73
-> -- 70
-< -- 1
-+ -- 49
-- -- 28
-* -- 32
-:= -- 370
+            1238 strings with 13939 characters,
+and the built_in function-call counts, 515176 in all, are:
+= -- 53060
+> -- 2489
+< -- 202
++ -- 20526
+- -- 1376
+* -- 37925
+:= -- 74327
 add.period$ -- 0
-call.type$ -- 1
-change.case$ -- 0
+call.type$ -- 6
+change.case$ -- 130
 chr.to.int$ -- 42
-cite$ -- 0
-duplicate$ -- 11
-empty$ -- 104
-format.name$ -- 0
-if$ -- 325
+cite$ -- 10
+duplicate$ -- 53397
+empty$ -- 38339
+format.name$ -- 2917
+if$ -- 94543
 int.to.chr$ -- 0
-int.to.str$ -- 0
+int.to.str$ -- 16
 missing$ -- 0
-newline$ -- 20
-num.names$ -- 0
-pop$ -- 47
+newline$ -- 1617
+num.names$ -- 302
+pop$ -- 6594
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 626
 quote$ -- 0
-skip$ -- 78
+skip$ -- 2318
 stack$ -- 0
-substring$ -- 154
-swap$ -- 1
-text.length$ -- 20
-text.prefix$ -- 0
+substring$ -- 108960
+swap$ -- 4118
+text.length$ -- 386
+text.prefix$ -- 6
 top$ -- 1
-type$ -- 22
+type$ -- 192
 warning$ -- 0
-while$ -- 64
+while$ -- 9138
 width$ -- 0
-write$ -- 20
+write$ -- 1612
+(There were 2 warnings)

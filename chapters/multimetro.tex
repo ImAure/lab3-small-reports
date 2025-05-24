@@ -86,64 +86,65 @@
             essendo $d = n - c = 6$ il numero di gradi di libertà, $n = 8$ il numero di bin e $c = 2$ il numero di parametri stimati---media e deviazione standard. Il valore critico per il test del $\chi^2$ è $\chi^2_\text{crit}= \num{12.59}$ \cite{chi2-table}, posso quindi rigettare l'ipotesi nulla che le misure seguano la distribuzione gaussiana.
 
     \section{Altre misure di resistenze}
-            Riporto altre misure eseguite con il multimetro su vari materiali.
+        Riporto altre misure eseguite con il multimetro su vari materiali.
+        
+        \subsection{Resistenze in parallelo}
+            Usando $n = 1, 2, 3$ resistori scelti casualmente tra quelli studiati al punto \Sref{s:mul:resistori}, ho misurato la resistenza equivalente $R_\text{o}$ dei resistori montati in parallelo su una breadboard come in \figref{fig:mul:res-parallelo}. I risultati sono riportati in \tabref{tab:mul:res-parallelo}, insieme ai valori teorici, calcolati a partire dalla $R_\text{m}$ del punto precedente come
+            \begin{equation*}
+                \frac{1}{R_\text{e}}
+                = \frac{n}{R_\text{m}}
+                \iff R_\text{e} = \frac{R_\text{m}}{n}
+                \mycomma
+            \end{equation*}
+            e alle incertezze $\delta R_\text{s}$ e $\delta R_\text{e}$. La prima è ancora la sensibilità dello strumento, mentre la seconda è calcolata propagando l'incertezza $\overline{\sigma}$ sul valor medio $R_\text{m}$ trovata al punto \Sref{s:mul:resistori}:
+            \begin{equation*}
+                \delta R_\text{e}
+                = \abs{\pdv{R_\text{e}}{R}}\overline{\sigma}
+                = \frac{\overline{\sigma}}{n}
+                \mycomma
+            \end{equation*}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\textwidth]{images/multimetro/res-parallelo.png}
+                \caption{Illustrazione rappresentativa dei resistori montati in parallelo su una breadboard.}
+                \label{fig:mul:res-parallelo}
+            \end{figure}
+            \begin{table}
+                \centering
+                \input{tables/multimetro/res-parallelo.tex}
+                \caption{Resistenze equivalenti misurate su resistori in parallelo e relative incertezze. Tutti i valori sono espressi in \unit{\ohm}.}
+                \label{tab:mul:res-parallelo}
+            \end{table}
+
+            Osservando i dati si nota che la resistenza equivalente osservata $R_\text{o}$ è sempre maggiore della resistenza teorica $R_\text{e}$. Questo può essere dovuto alla presenza di una resistenza di contatto con la breadboard, che non ho considerato nel calcolo di $R_\text{e}$.
+
+        \subsection{Resistività di un anello}
+            Ho misurato la resistenza di un anello metallico che suppongo essere in argento. L'anello è di forma circolare ma presenta un'apertura in basso, per cui ho effettuato la misura della resistenza poggiando i puntali del multimetro in corrispondenza dei punti estremi dell'apertura, come in \figref{fig:mul:anello}. Ho posto il multimetro alla portata di \SI{200}{\ohm} disponendo di una sensibilità $\delta R_\text = \SI{0.1}{\ohm}$; la resistenza misurata è quindi $R = \SI{0.5}{\ohm}$.
+
+            Dalla seconda legge di Ohm possiamo ricavare la resistività del materiale che compone l'anello, supponendo che esso sia omogeneo e isotropo. La resistività è definita come
+            \begin{equation}
+                \rho = R\frac{S}{L}
+                \mycomma
+                \label{eq:mul:ohm-law}
+            \end{equation}
+            dove $S$ è la sezione dell'anello e $L$ la lunghezza equivalente ottenuta rettificando la circonferenza.
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\textwidth]{images/multimetro/anello.jpg}
+                \caption{Fotografia dell'anello. I tratti in rosso indicano il punti in cui sono stati poggiati i puntali del multimetro.}
+                \label{fig:mul:anello}
+            \end{figure}
+
+            L'anello ha una raggio medio di $r = \SI{2.1(1)}{\centi\meter}$, uno spessore di $d = \SI{0.3(1)}{\centi\meter}$ e un'altezza pari a $h = \SI{0.8(1)}{\centi\meter}$. La sezione dell'anello è quindi $S = hd = \SI{0.24(11)}{\centi\meter\squared}$, mentre, denotando con $\ell = \SI{1.0(1)}{\centi\meter}$ la distanza che separa i due puntali e che quindi non partecipa alla resistenza, la lunghezza equivalente è $L = 2\pi r - \ell = \SI{12.3(7)}{\centi\meter}$.
+
+            Dal momento che l'anello è formato da fili cilindrici intrecciati, la sezione $S$ rappresenta in realtà una sovrastima della sezione effettiva. Il rapporto tra la superficie di un cerchio di raggio $d/2$ e quella di un quadrato di lato $d$ è pari a $\pi / 4$, per cui la sezione effettiva è $S_\text{eff} = S \pi / \num{4} = \SI{0.19(8)}{\centi\meter\squared}$.
             
-            \subsection{Resistenze in parallelo}
-                Usando $n = 1, 2, 3$ resistori scelti casualmente tra quelli studiati al punto \Sref{s:mul:resistori}, ho misurato la resistenza equivalente $R_\text{o}$ dei resistori montati in parallelo su una breadboard come in \figref{fig:mul:res-parallelo}. I risultati sono riportati in \tabref{tab:mul:res-parallelo}, insieme ai valori teorici, calcolati a partire dalla $R_\text{m}$ del punto precedente come
-                \begin{equation*}
-                    \frac{1}{R_\text{e}}
-                    = \frac{n}{R_\text{m}}
-                    \iff R_\text{e} = \frac{R_\text{m}}{n}
-                    \mycomma
-                \end{equation*}
-                e alle incertezze $\delta R_\text{s}$ e $\delta R_\text{e}$. La prima è ancora la sensibilità dello strumento, mentre la seconda è calcolata propagando l'incertezza $\overline{\sigma}$ sul valor medio $R_\text{m}$ trovata al punto \Sref{s:mul:resistori}:
-                \begin{equation*}
-                    \delta R_\text{e}
-                    = \abs{\pdv{R_\text{e}}{R}}\overline{\sigma}
-                    = \frac{\overline{\sigma}}{n}
-                    \mycomma
-                \end{equation*}
-                \begin{figure}
-                    \centering
-                    \includegraphics[width=0.4\textwidth]{images/multimetro/res-parallelo.png}
-                    \caption{Illustrazione rappresentativa dei resistori montati in parallelo su una breadboard.}
-                    \label{fig:mul:res-parallelo}
-                \end{figure}
-                \begin{table}
-                    \centering
-                    \input{tables/multimetro/res-parallelo.tex}
-                    \caption{Resistenze equivalenti misurate su resistori in parallelo e relative incertezze. Tutti i valori sono espressi in \unit{\ohm}.}
-                    \label{tab:mul:res-parallelo}
-                \end{table}
-
-                Osservando i dati si nota che la resistenza equivalente osservata $R_\text{o}$ è sempre maggiore della resistenza teorica $R_\text{e}$. Questo può essere dovuto alla presenza di una resistenza di contatto con la breadboard, che non ho considerato nel calcolo di $R_\text{e}$.
-
-            \subsection{Resistività di un anello}
-                Ho misurato la resistenza di un anello metallico che suppongo essere in argento. L'anello è di forma circolare ma presenta un'apertura in basso, per cui ho effettuato la misura della resistenza poggiando i puntali del multimetro in corrispondenza dei punti estremi dell'apertura, come in \figref{fig:mul:anello}. Ho posto il multimetro alla portata di \SI{200}{\ohm} disponendo di una sensibilità $\delta R_\text = \SI{0.1}{\ohm}$; la resistenza misurata è quindi $R = \SI{0.5}{\ohm}$.
-
-                Dalla seconda legge di Ohm possiamo ricavare la resistività del materiale che compone l'anello, supponendo che esso sia omogeneo e isotropo. La resistività è definita come
-                \begin{equation}
-                    \rho = R\frac{S}{L}
-                    \mycomma
-                    \label{eq:mul:ohm-law}
-                \end{equation}
-                dove $S$ è la sezione dell'anello e $L$ la lunghezza equivalente ottenuta rettificando la circonferenza.
-
-                L'anello ha una raggio medio di $r = \SI{2.1(1)}{\centi\meter}$, uno spessore di $d = \SI{0.3(1)}{\centi\meter}$ e un'altezza pari a $h = \SI{0.8(1)}{\centi\meter}$. La sezione dell'anello è quindi $S = hd = \SI{0.24(11)}{\centi\meter\squared}$, mentre, denotando con $\ell = \SI{1.0(1)}{\centi\meter}$ la distanza che separa i due puntali e che quindi non partecipa alla resistenza, la lunghezza equivalente è $L = 2\pi r - \ell = \SI{12.3(7)}{\centi\meter}$.
-
-                Dal momento che l'anello è formato da fili cilindrici intrecciati, la sezione $S$ rappresenta in realtà una sovrastima della sezione effettiva. Il rapporto tra la superficie di un cerchio di raggio $d/2$ e quella di un quadrato di lato $d$ è pari a $\pi / 4$, per cui la sezione effettiva è $S_\text{eff} = S \pi / \num{4} = \SI{0.19(8)}{\centi\meter\squared}$.
-                
-                La resistività dell'anello calcolata dalla \eqref{eq:mul:ohm-law} è quindi
-                \begin{equation*}
-                    \rho = R\frac{S_\text{eff}}{L} = \SI{0.0077(55)}{\ohm\centi\meter} = \SI{7.7(55)e-5}{\ohm\meter}
-                    \mycomma
-                \end{equation*}
-                valore che si discosta di diversi ordini di grandezza da quello noto di \SI{1.59e-8}{\ohm\meter} \cite{Griffiths2012-qz}. Un risultato così elevato può essere attribuito sia all'incertezza sulle misure geometriche, sia al fatto che l'anello non sia composto da argento puro, sia alla presenza di ossidazione superficiale o di cattivi contatti tra i fili intrecciati che ne aumentano la resistenza complessiva.
-                \begin{figure}
-                    \centering
-                    \includegraphics[width=0.4\textwidth]{images/multimetro/anello.jpg}
-                    \caption{Fotografia dell'anello. I tratti in rosso indicano il punti in cui sono stati poggiati i puntali del multimetro.}
-                    \label{fig:mul:anello}
-                \end{figure}
+            La resistività dell'anello calcolata dalla \eqref{eq:mul:ohm-law} è quindi
+            \begin{equation*}
+                \rho = R\frac{S_\text{eff}}{L} = \SI{0.0077(55)}{\ohm\centi\meter} = \SI{7.7(55)e-5}{\ohm\meter}
+                \mycomma
+            \end{equation*}
+            valore che si discosta di diversi ordini di grandezza da quello noto di \SI{1.59e-8}{\ohm\meter} \cite{Griffiths2012-qz}. Un risultato così elevato può essere attribuito sia all'incertezza sulle misure geometriche, sia al fatto che l'anello non sia composto da argento puro, sia alla presenza di ossidazione superficiale o di cattivi contatti tra i fili intrecciati che ne aumentano la resistenza complessiva.
+            
 
 

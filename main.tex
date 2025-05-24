@@ -1,7 +1,7 @@
 %
 %   ATTENZIONARE INCERTEZZE NELLA TABELLA BETHE-BLOCH!! 4(5) VUOL DIRE \PM 5
 %
-\documentclass[oneside, a4paper, 11pt, draft]{memoir}
+\documentclass[oneside, a4paper, 11pt, final]{memoir}
 \usepackage[T1]{fontenc}                % per il font
 \usepackage[utf8]{inputenc}             % per l'input
 \usepackage[english, italian]{babel}    % lingua principale inglese, secondaria italiano
@@ -55,13 +55,13 @@
         \input{chapters/preface}
 
     \mainmatter
-        %\input{chapters/bethebloch}
-        %\input{chapters/arduino}
-        %\input{chapters/multimetro}
+        \input{chapters/bethebloch}
+        \input{chapters/arduino}
+        \input{chapters/multimetro}
         \input{chapters/accettanza.tex}
         \appendix
-        %\input{chapters/appendices/bethebloch-code.tex}
-        %\input{chapters/appendices/arduino-code.tex}
+        \input{chapters/appendices/bethebloch-code.tex}
+        \input{chapters/appendices/arduino-code.tex}
     \backmatter
         \printbibliography  
 \end{document}
