@@ -12,7 +12,7 @@
     \begin{table}
         \footnotesize
         \centering
-        \input{tables/bethe-constants.tex}
+        \input{tables/bethebloch/bethe-constants.tex}
         \caption{Notazione e unità di misura per la formula di Bethe--Bloch. Si tratta di un riassunto della tabella del PDG \cite{PhysRevD-110-030001}.}
         \label{tab:bet:costanti}
     \end{table}
@@ -25,9 +25,16 @@
     La \eqref{eq:bet:bethe-bloch-1} e la \eqref{eq:bet:wmax} sono valide nell'approssimazione $\num{0.1} \lesssim \beta\gamma \lesssim \num{1000}$ poiché al limite inferiore la velocità del proiettile diventa confrontabile con la ``velocità'' degli elettroni atomici mentre al limite superiore gli effetti radiativi non sono più trascurabili.
 
 \section{La simulazione}
-    Ho scelto di simulare la perdita di energia di una particella $\alpha$ a \SI{5}{\mega\eV} attraverso un foglio di alluminio di spessore\footnote{Dopo aver provato con uno spessore di \SI{0.016}{\milli\meter} e aver constatato che la curva risultava tagliata---la particella non cedeva tutta l'energia all'alluminio---ho scelto di aumentare di poco lo spessore per il gusto di un grafico più completo.} \SI{0.018}{\milli\meter}. Per realizzare la simulazione ho scritto un codice in C che implementa la \eqref{eq:bet:bethe-bloch-1} in modo approssimato.
+    Ho scelto di simulare la perdita di energia di una particella $\alpha$ a \SI{5}{\mega\eV} attraverso un foglio di alluminio di spessore\footnote{Dopo aver provato con uno spessore di \SI{0.015}{\milli\meter} e aver constatato che la curva risultava tagliata---la particella non cedeva tutta l'energia all'alluminio---ho scelto di aumentare di poco lo spessore per il gusto di un grafico più completo.} \SI{0.022}{\milli\meter}. Per realizzare la simulazione ho scritto un codice in C che implementa la \eqref{eq:bet:bethe-bloch-1} in modo numerico.
     \subsection{Descrizione del codice e dei calcoli}
-        Il programma inizia richiedendo da tastiera il numero di intervalli $N$ in cui suddividere lo spessore del materiale; gli altri dati sono tutti precompilati come costanti. 
+        \begin{table}
+            \footnotesize
+            \centering
+            \input{tables/bethebloch/simulation-constants.tex}
+            \caption{caption!!}
+            \label{tab:bet:sim-costanti}
+        \end{table}
+        L'utente che lancia il programma sceglie lo spessore del materiale bersaglio e il numero di step in cui suddividere il calcolo. Il programma quindi chiede all'utente di selezionare un proiettile tra $\alpha$, protoni o muoni e un materiale tra alluminio e rame. I dati come le masse delle particelle, le densità dei materiali e i valori di $I$, sono definiti come costanti all'inizio del programma. Non li riporto in questo elaborato per brevità---la totalità del codice, costanti incluse, è consultabile sul mio profilo GitHub.\footnote{Repository: \url{https://github.com/ImAure/bethe-bloch-simulation}}
         
         Assumiamo che in ciascun intervallo di spessore\footnote{Ricordo che in questo caso la $x$ non indica una distanza.} $\dd{s}$ tutte le quantità variabili di nostro interesse siano costanti---velocità, energia, perdita di energia \myetc. Dalla teoria della relatività ristretta scriviamo per l'$n$-esimo intervallo
         \begin{align*}   
@@ -42,14 +49,15 @@
             \beta_n^2 = 1 - \frac{1}{\gamma_n^2}
             \myperiod
         \end{equation*}
-        Le quantità appena descritte sono calcolate attraverso il codice nelle righe \lnref{ln:bet:T-start}--\lnref{ln:bet:T-end}.
+        % Le quantità appena descritte sono calcolate attraverso il codice nelle righe \lnref{ln:bet:T-start}--\lnref{ln:bet:T-end}.
 
         Noti $\gamma_n$ e $\beta_n$, è possibile calcolare la perdita di energia media per unità di lunghezza attraverso la \eqref{eq:bet:bethe-bloch-1} moltiplicata per $\rho$. Possiamo in particolare calcolare l'energia cinetica con cui la particella $\alpha$ entra nello strato successivo, $T_{n + 1}$ come
         \begin{equation*}
             T_{n + 1} = T_n + \dd{T_n} = T_n + \rho\, {\left\langle - \dv{E}{x} \right\rangle}_n \dd{s}
             \mycomma
         \end{equation*}
-        essendo naturalmente $\dd{T_n} \leq 0$. Il calcolo di $\rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$ è svolto dalla funzione \texttt{bethe()} chiamata alla riga \lnref{ln:bet:bethe-call} e definita alla riga \lnref{ln:bet:bethe-def}, con l'ausilio della funzione \texttt{wmax()} che in particolare calcola il termine $W_\text{max}$.
+        essendo naturalmente $\dd{T_n} \leq 0$. Il calcolo di $\rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$ è svolto dalla funzione \texttt{bethe()}, con l'ausilio della funzione \texttt{wmax()} che in particolare calcola il termine $W_\text{max}$:
+        \lstinputlisting[language = C]{code/bethebloch/bethe-and-wmax.txt}
 
         Il calcolo viene quindi ripetuto a partire dalla nuova energia $T_{n + 1}$ per ottenere la perdita di energia attraverso il successivo strato. Per ogni reiterazione il codice stampa su un file la distanza totale percorsa, l'energia cinetica della particella e la quantità $\abs{\dd{T_n}} = \rho\,\abs{{\left\langle - \dd{E} / \dd{x} \right\rangle}_n}$.
 

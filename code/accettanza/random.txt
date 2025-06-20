@@ -1,0 +1,19 @@
+int rand_polar2D(polar2D_t *ptr, double radius) {
+    if (ptr == NULL) return -1;
+    ptr->rho = (radius < 0) ? 1 : (sqrt((double)rand() / RAND_MAX) * radius);
+    ptr->phi = (radius == 0) ? 0 : ((double)rand() / RAND_MAX) * (2 * M_PI);
+    return 0;
+}
+
+int rand_polar3D(polar3D_t *ptr, double radius) {
+    if (ptr == NULL) return -1;
+    ptr->rho = (radius < 0) ? 1 : (cbrt((double)rand() / RAND_MAX) * radius);
+    if (radius == 0) {
+        ptr->theta = 0;
+        ptr->phi   = 0;
+    } else {
+        ptr->theta = acos(1 - 2 * ((double)rand() / RAND_MAX));
+        ptr->phi   = ((double)rand() / RAND_MAX) * (2 * M_PI);
+    }
+    return 0;
+}

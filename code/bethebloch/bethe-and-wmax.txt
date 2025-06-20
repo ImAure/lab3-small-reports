@@ -1,0 +1,7 @@
+double wmax(double beta2, double gamma, double gamma2, double m, double m2) {
+    return (2.0 * E_M * beta2 * gamma2) / (1.0 + (2.0 * gamma * m) + m2);
+}
+
+double bethe(double z_inc, double z_tar, double a_tar, double beta2, double gamma2, double w_max, double i2) {
+    return (((K * z_inc * z_inc * z_tar) / (a_tar * beta2)) * (0.5 * log((2.0 * E_M * beta2 * gamma2 * w_max) / (i2 * 1.0e-12)) - beta2));
+}
