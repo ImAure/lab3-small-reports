@@ -1,0 +1,25 @@
+int intercept(file_t *pf, point2D_t src, polar3D_t ray, disc3D_t detector3D, int *hits) {
+    point3D_t hit_point3D;
+    point2D_t dtc_point2D;
+    point3D_t dtc_point3D_hist;
+    point2D_t dtc_point2D_hist;
+    double u;
+
+    u = detector3D.center.cart.z * tan(ray.theta);
+    if (cart_to_polar2D(&detector3D.center.cart, &dtc_point2D.polar)) return -1;
+
+    if ((u * u + dtc_point2D.polar.rho * dtc_point2D.polar.rho - 2 * u * dtc_point2D.polar.rho * cos(ray.phi - dtc_point2D.polar.phi)) <= detector3D.radius * detector3D.radius) {
+        hit_point3D.cart.x = src.cart.x + u * cos(ray.phi);
+        hit_point3D.cart.y = src.cart.y + u * sin(ray.phi);
+        hit_point3D.cart.z = detector3D.center.cart.z;
+        
+        dtc_point3D_hist.cart.x = hit_point3D.cart.x - (detector3D.center.cart.x + src.cart.x);
+        dtc_point3D_hist.cart.y = hit_point3D.cart.y - (detector3D.center.cart.y + src.cart.y);
+
+        cart_to_polar2D(&dtc_point3D_hist.cart, &dtc_point2D_hist.polar);
+        
+        fprintf(pf, (*hits) ? ("\n%f %f %f %f %f %f %f %f") : ("%f %f %f %f %f %f %f %f"), src.cart.x, src.cart.y, 0.0, hit_point3D.cart.x, hit_point3D.cart.y, hit_point3D.cart.z, dtc_point2D_hist.polar.rho, dtc_point2D_hist.polar.phi);
+        ++(*hits);
+    }
+    return 0;
+}

@@ -1,0 +1,4 @@
+$ ./sim 100000 0 1 0 0.7 0.4 dati
+Hits: 3168/100000
+Ratio: 0.0158
+Solid angle: 0.1991 (sr) or 0.0158*4pi (sr)

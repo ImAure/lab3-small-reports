@@ -29,5 +29,6 @@
 \contentsline {subsection}{\numberline {4.1.1}Sorgente puntiforme}{16}{subsection.4.1.1}%
 \contentsline {subsection}{\numberline {4.1.2}Sorgente estesa}{18}{subsection.4.1.2}%
 \contentsline {section}{\numberline {4.2}Codice e generazione dei punti}{18}{section.4.2}%
-\contentsline {appendix}{\chapternumberline {A}Codice per Arduino}{20}{appendix.Alph1}%
-\contentsline {chapter}{Bibliografia}{21}{section*.17}%
+\contentsline {section}{\numberline {4.3}Esempi e immagini}{20}{section.4.3}%
+\contentsline {appendix}{\chapternumberline {A}Codice per Arduino}{24}{appendix.Alph1}%
+\contentsline {chapter}{Bibliografia}{25}{section*.21}%

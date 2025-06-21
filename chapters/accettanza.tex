@@ -13,7 +13,7 @@
 
         Per ragioni di simmetria, la posizione del rivelatore sopra la sorgente non causa alcuna perdita di generalità. Se il rivelatore avesse altezza $z=0$, visto lo spessore nullo sia della sorgente che del rivelatore, nessuna particella verrebbe rivelata. La sorgente inoltre emette in modo simmetrico rispetto al piano $Oxy$, quindi il caso $z<0$ è equivalente al caso $z>0$.
 
-        \subsection{Sorgente puntiforme}
+        \subsection{Sorgente puntiforme}\label{ss:acc:sorgente-puntiforme}
             Dal momento che la sorgente può emettere da un solo punto alla volta, cominciamo col risolvere il problema nel caso di una sorgente puntiforme nell'origine e un rivelatore che può essere spostato rispettando le ipotesi di cui sopra. 
             
             Affinché la distribuzione delle particelle sia uniforme, generare delle coordinate cartesiane casuali non è sufficiente. La scelta che ho fatto è quella di generare delle \emph{direzioni} casuali in coordinate sferiche $\pqty{\varrho,\vartheta,\varphi}$, risparmiando la spesa computazionale di generare la distanza $\varrho$ dall'origine. Per le proprietà delle coordinate sferiche possiamo generare uniformemente $\cos\!\vartheta\in\bqty{-1;1}$, per poi ricavare $\vartheta$ prendendone l'arcocoseno, mentre possiamo generare uniformemente $\varphi\in\bqty{0;2\pi}$.
@@ -86,9 +86,57 @@
         Come per la simulazione dell'assorbimento di particelle cariche esposto al capitolo \Sref{ch:bet}, anche per questo progetto l'interezza del codice è reperibile sul mio profilo GitHub.\footnote{Repository: \url{https://github.com/ImAure/geometric-acceptance}}
 
         Il programma può essere lanciato scegliendo fin da subito il numero di punti da generare, le dimensioni della sorgente e del rivelatore e la posizione di quest'ultimo. Dopo aver verificato la validità dell'input e caricati i dati in memoria, il programma genera un punto casuale come sorgente in coordinate polari piane e una direzione casuale per la radiazione in coordinale polari sferiche.
-        \lstinputlisting[language = C]{code/accettanza/random.txt}
+        \lstinputlisting[style = CStyle]{code/accettanza/random.txt}
         Affinché la distribuzione sia uniforme, nel caso bidimensionale viene generato uniformemente $\varrho^2 \in \bqty{0;1}$, ne viene presa la radice quadrata e il risultato è moltiplicato per il raggio massimo. Nel caso tridimensionale la funzione fa la stessa cosa con $\varrho^3$ e la radice terza, mentre come detto prima viene generato\footnote{Per essere precisi, il coseno è generato tra \num{1} e \num{-1} piuttosto che tra \num{-1} e \num{1}. Questo perché per $\vartheta = 0$ si ha $\cos\!\vartheta = \num{1}$ e per $\vartheta = \pi$ si ha $\cos\!\vartheta = \num{-1}$} $\cos\!\vartheta \in \bqty{-1;1}$ e ne viene preso l'arcocoseno per avere $\vartheta$.
 
-        Entrambe le funzioni ammettono come input anche un raggio massimo negativo: in quel caso il raggio verrà posto uguale a $1$ e verrà generata solo una direzione. Questo comportamento è sfruttato nella generazione casuale della radiazione, in cui la chiamata a funzione avviene come \verb|rand_polar3D(&ray, -1)|.
+        Entrambe le funzioni ammettono come input anche un raggio massimo negativo: in quel caso il raggio verrà posto uguale a $1$ e verrà generata solo la direzione. Questo comportamento è sfruttato nella generazione casuale della radiazione, in cui la chiamata a funzione avviene come \verb|rand_polar3D(&ray, -1)|.
         
-        La funzione \verb|intercept()| è pensata appositamente per verificare l'intersezione del raggio nel caso di una sorgente puntiforme posta nell'origine. Di conseguenza viene calcolata la posizione relativa del rivelatore $\pqty{x_c', y_c', z_c}$ e data in input alla funzione insieme alla direzione. La funzione verifica quindi la disequazione \eqref{eq:acc:diseq} e in caso di successo aggiorna il conteggio e salva i dati in un file che raccoglie solo i punti del rivelatore dove si è verificata un'intersezione e i punti sorgente da cui si è originato il raggio.
+        La funzione \verb|intercept()| verifica l'intersezione del raggio nel caso di una sorgente puntiforme posta nell'origine. Per utilizzarla correttamente viene calcolata la posizione relativa del rivelatore $\pqty{x_c', y_c', z_c}$ e questa viene data in input alla funzione insieme alla direzione da verificare. La funzione valuta quindi la disequazione \eqref{eq:acc:diseq} e in caso di successo aggiorna il conteggio e stampa su file le coordinate del punto di partenza e del punto di arrivo---riportate di nuovo nel riferimento del centro della sorgente.
+        \lstinputlisting[style = CStyle]{code/accettanza/intercept.txt}
+
+        Sullo stesso file, la funzione \verb|intercept()| si occupa anche stampare la posizione dei punti di intersezione del rivelatore convertendoli in coordinate polari nel sistema di riferimento centrato nel rivelatore stesso. Questi dati possono essere usati per costruire un istogramma e apprezzare la non uniformità della distribuzione della radiazione sul sensore.
+
+        L'accettanza geometrica del rivelatore è infine calcolata dividendo il numero di raggi che intersecano il rivelatore per il numero totale di raggi generati. Come giustificato alla fine del punto \Sref{ss:acc:sorgente-puntiforme}, questo numero è a sua volta diviso per \num{2} per tenere conto solo dei raggi che viaggiano nel semispazio $z > 0$. Il programma quindi stampa a schermo l'accettanza geometrica del rivelatore e l'equivalente angolo solido che sottende.
+
+    \section{Esempi e immagini}
+        Riporto qui degli esempi di esecuzione della simulazione. Il nome dell'eseguibile è \verb|sim|, mentre gli argomenti che compaiono sono in ordine il numero di punti da generare, il raggio della sorgente, le coordinate $\pqty{x,y,z}$ del centro del rivelatore e la stringa da usare per i nomi dei file in cui salvare tutti i punti generati, \verb|<string>.1.txt|, e i punti da graficare, \verb|<string>.2.txt|.
+
+        Le immagini sono generate tramite uno script python che estrae i numeri dal secondo file. La prima parte del programma rappresenta i punti di partenza dei raggi in rosso e i punti di arrivo in verde, collegandoli con una riga grigia; la seconda parte del programma crea un istogramma in tre dimensioni i cui bin sono settori di corone circolari. I bin sono generati in modo da avere area costante, per questo quelli più esterni sono più sottili. L'altezza delle barre invece è la densità di frequenza ottenuta dividendo la frequenza relativa per l'area del bin.
+
+        \begin{figure}[ht]
+            \textbf{Sorgente piccola e rivelatore allineato}
+            \lstinputlisting[style = mybash]{code/accettanza/bash1.txt}
+            \centering
+            \includegraphics[width=0.49\textwidth]{images/accettanza/example1.1.png}
+            \includegraphics[width=0.49\textwidth]{images/accettanza/example1.2.png}
+            \caption{Notiamo dall'istogramma che la distribuzione è maggiormente concentrata al centro.}
+        \end{figure}
+
+        \begin{figure}[ht]
+            \textbf{Sorgente puntiforme e rivelatore traslato}
+            \lstinputlisting[style = mybash]{code/accettanza/bash2.txt}
+            \centering
+            \includegraphics[width=0.49\textwidth]{images/accettanza/example2.1.png}
+            \includegraphics[width=0.49\textwidth]{images/accettanza/example2.2.png}
+            \caption{In questo caso osserviamo come la distribuzione sia particolarmente concentrata sul lato del rivelatore più vicino alla sorgente}
+        \end{figure}
+        
+        \begin{figure}[ht]
+            \textbf{Sorgente e rivelatore confrontabili}
+            \lstinputlisting[style = mybash]{code/accettanza/bash3.txt}
+            \centering
+            \includegraphics[width=0.49\textwidth]{images/accettanza/example3.1.png}
+            \includegraphics[width=0.49\textwidth]{images/accettanza/example3.2.png}
+            \caption{Anche qui come nel primo caso la distribuzione dei raggi è più densa al centro e qualitativamente a simmetria cilindrica.}
+        \end{figure}
+
+        \begin{figure}[ht]
+            \textbf{Sorgente grande e rivlatore vicino}
+            \lstinputlisting[style = mybash]{code/accettanza/bash4.txt}
+            \centering
+            \includegraphics[width=0.49\textwidth]{images/accettanza/example4.1.png}
+            \includegraphics[width=0.49\textwidth]{images/accettanza/example4.2.png}
+            \caption{Ponendo un rivelatore piccolo molto vicino alla sorgente la distribuzione è in prima approssimazione uniforme.}
+        \end{figure}
+
+        

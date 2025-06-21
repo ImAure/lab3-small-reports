@@ -1,0 +1,30 @@
+#define SENSOR_PIN A0
+#define MAX_READ   1023.0
+#define MAX_V      5.0
+#define N          20
+#define A          0.5
+#define B          100
+
+void setup() {
+    pinMode(SENSOR_PIN, INPUT);
+    Serial.begin(9600);
+}
+
+float         tmp;
+int           i = 0;  
+unsigned long dt = 0;
+
+void loop() {
+    Serial.print(dt = millis());
+
+    for (i = 0, tmp = 0; i < N; i++) {      |\label{ln:ard:calc-start}|
+        tmp += (((float)analogRead(SENSOR_PIN) / MAX_READ) * MAX_V - A) * B;
+    }
+    tmp = tmp / N;                          |\label{ln:ard:calc-end}|
+
+    Serial.print(", ");
+    Serial.println(tmp);
+
+    dt = millis() - dt;
+    delay(30000 - dt);
+}

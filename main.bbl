@@ -1591,6 +1591,28 @@
     \field{year}{2024}
   \endentry
 
+  \entry{Taylor1999-me}{book}{}{}
+    \name{author}{1}{}{%
+      {{hash=TJR}{%
+         family={Taylor},
+         familyi={T\bibinitperiod},
+         given={John\bibnamedelima Robert},
+         giveni={J\bibinitperiod\bibinitdelim R\bibinitperiod},
+      }}%
+    }
+    \list{language}{1}{%
+      {it}%
+    }
+    \strng{namehash}{TJR1}
+    \strng{fullhash}{TJR1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{title}
+    \field{sortinit}{T}
+    \field{sortinithash}{T}
+    \field{title}{Introduzione all'analisi degli errori. Lo studio delle incertezze nelle misure fisiche}
+    \field{year}{1999}
+  \endentry
+
   \entry{velleman-dvm841}{manual}{}{}
     \name{author}{1}{}{%
       {{hash=V}{%

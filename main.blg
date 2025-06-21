@@ -28,45 +28,45 @@ Warning--you've exceeded 500, the entry-string-size, for entry PhysRevD-110-0300
 while executing--line 2728 of file biblatex.bst
 *Please notify the bibstyle designer*
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-You've used 6 entries,
+You've used 7 entries,
             6402 wiz_defined-function locations,
-            1238 strings with 13939 characters,
-and the built_in function-call counts, 515176 in all, are:
-= -- 53060
-> -- 2489
-< -- 202
-+ -- 20526
-- -- 1376
-* -- 37925
-:= -- 74327
+            1244 strings with 14076 characters,
+and the built_in function-call counts, 520534 in all, are:
+= -- 53449
+> -- 2570
+< -- 229
++ -- 20621
+- -- 1400
+* -- 38318
+:= -- 74845
 add.period$ -- 0
-call.type$ -- 6
-change.case$ -- 130
+call.type$ -- 7
+change.case$ -- 142
 chr.to.int$ -- 42
-cite$ -- 10
-duplicate$ -- 53397
-empty$ -- 38339
-format.name$ -- 2917
-if$ -- 94543
+cite$ -- 12
+duplicate$ -- 53906
+empty$ -- 38877
+format.name$ -- 2965
+if$ -- 95685
 int.to.chr$ -- 0
-int.to.str$ -- 16
+int.to.str$ -- 19
 missing$ -- 0
-newline$ -- 1617
-num.names$ -- 302
-pop$ -- 6594
+newline$ -- 1639
+num.names$ -- 348
+pop$ -- 6930
 preamble$ -- 1
-purify$ -- 626
+purify$ -- 640
 quote$ -- 0
-skip$ -- 2318
+skip$ -- 2483
 stack$ -- 0
-substring$ -- 108960
-swap$ -- 4118
-text.length$ -- 386
-text.prefix$ -- 6
+substring$ -- 109704
+swap$ -- 4233
+text.length$ -- 411
+text.prefix$ -- 7
 top$ -- 1
-type$ -- 192
+type$ -- 226
 warning$ -- 0
-while$ -- 9138
+while$ -- 9191
 width$ -- 0
-write$ -- 1612
+write$ -- 1633
 (There were 2 warnings)
