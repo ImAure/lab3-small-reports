@@ -66,12 +66,12 @@
                 \label{eq:acc:diseq}
             \end{equation}
 
-            I valori $z_c$, $d$ e $\varphi_c$ sono costanti, per cui una volta generati $\vartheta$ e $\varphi$ è sufficiente verificare la disequazione per sapere se il raggio interseca o no il rivelatore. Resta quindi da trovare esplicitamente la posizione dei punti $P^*\equiv\pqty{x^*, y^*, z^*}$ che soddisfano la relazione; il problema può essere ridotto a quello dell'intersezione tra la retta individuata dalla direzione $\pqty{\vartheta,\varphi}$ e il piano $z = z_c$. La quantità $z_c \tan\!\vartheta$ è la proiezione del segmento $\overline{OP^*}$ sul piano $Oxy$: il suo prodotto per $\cos\!\varphi$ e $\sin\!\varphi$ ci dà rispettivamente le coordinate $x^*$ e $y^*$. L'altezza $z^*$ è banalmente quella del rivelatore $z_c$.
+            I valori $z_c$, $d$ e $\varphi_c$ sono costanti, per cui una volta generati $\vartheta$ e $\varphi$ è sufficiente verificare la disequazione per sapere se il raggio interseca o no il rivelatore. Resta quindi da trovare esplicitamente la posizione dei punti $P^*\equiv\pqty{x^*, y^*, z^*}$ che soddisfano la relazione; il problema può essere ridotto a quello dell'intersezione tra la retta individuata dalla direzione $\pqty{\vartheta,\varphi}$ e il piano $z = z_c$. La quantità $z_c \tan\!\vartheta$ è la proiezione del segmento $\overline{OP^*}$ sul piano $Oxy$: il suo prodotto per $\cos\!\varphi$ e $\sin\!\varphi$ ci dà rispettivamente le coordinate $x^*$ e $y^*$. L'altezza $z^*$ è naturalmente la stessa del rivelatore $z_c$.
             
-            È importante notare che il problema non distingue tra ``sopra'' e ``sotto'', per cui un raggio rivolto verso il simmetrico di $C$ rispetto all'origine sarà ugualmente soluzione della disequazione. Per tener conto di ciò basterà dividere per $2$ il conteggio totale dei punti che intersecano il rivelatore.
+            È importante notare che il problema non distingue tra ``sopra'' e ``sotto'', per cui un raggio rivolto verso il simmetrico di $P^*$ rispetto all'origine sarà ugualmente soluzione della disequazione. Per tener conto di ciò basterà dividere per $2$ il conteggio totale dei punti che intersecano il rivelatore nel calolo dell'accettanza geometrica.
 
         \subsection{Sorgente estesa}
-            Per estendere quanto sviluppato al punto precedente alla sorgente estesa, è sufficiente fare una semplice traslazione: generato un punto $S\equiv\pqty{x_s, y_s, 0}$ arbitrario nella sorgente circolare, è possibile calcolare la posizione relativa del centro $C'$ che avrà quindi coordinate $C'\equiv\pqty{x_c - x_s, y_c - y_s, z_c}$. Fatto ciò possiamo generare una direzione casuale e, con gli stessi passaggi del punto precedente, trovare gli eventuali punti di intersezione nel sistema di riferimento del punto sorgente. Trovati tali punti, sarà immediato riportarli nel sistema di riferimento del centro della sorgente con la traslazione inversa. Si trova in particolare
+            Per estendere quanto sviluppato al punto precedente alla sorgente estesa, è sufficiente fare una semplice traslazione: generato un punto $S\equiv\pqty{x_s, y_s, 0}$ arbitrario nella sorgente circolare, è possibile calcolare la posizione relativa del centro $C'$, nel sistema di riferimento che ha il cento in $S$, che avrà quindi coordinate $C'\equiv\pqty{x_c - x_s, y_c - y_s, z_c}$. Fatto ciò possiamo generare una direzione casuale e, con gli stessi passaggi del punto precedente, trovare gli eventuali punti di intersezione nel sistema di riferimento del punto sorgente. Trovati tali punti, sarà immediato riportarli nel sistema di riferimento del centro della sorgente con la traslazione inversa. Si trova in particolare
             \begin{equation*}
                 \begin{cases}
                     x^* = x_s + z_c\tan\!\vartheta\cos\!\varphi \\
@@ -80,7 +80,7 @@
                 \end{cases}
                 \mycomma
             \end{equation*}
-            dove $\vartheta$ e $\varphi$ sono ancora le direzioni generate casualmente nel sistema del punto sorgente.
+            dove $\vartheta$ e $\varphi$ sono ancora le direzioni generate casualmente nel sistema del punto sorgente; $z_c$ resta invariato dal momento che il punto $S$ giace ancora in $Oxy$.
     
     \section{Codice e generazione dei punti}
         Come per la simulazione dell'assorbimento di particelle cariche esposto al capitolo \Sref{ch:bet}, anche per questo progetto l'interezza del codice è reperibile sul mio profilo GitHub.\footnote{Repository: \url{https://github.com/ImAure/geometric-acceptance}}
@@ -91,12 +91,13 @@
 
         Entrambe le funzioni ammettono come input anche un raggio massimo negativo: in quel caso il raggio verrà posto uguale a $1$ e verrà generata solo la direzione. Questo comportamento è sfruttato nella generazione casuale della radiazione, in cui la chiamata a funzione avviene come \verb|rand_polar3D(&ray, -1)|.
         
-        La funzione \verb|intercept()| verifica l'intersezione del raggio nel caso di una sorgente puntiforme posta nell'origine. Per utilizzarla correttamente viene calcolata la posizione relativa del rivelatore $\pqty{x_c', y_c', z_c}$ e questa viene data in input alla funzione insieme alla direzione da verificare. La funzione valuta quindi la disequazione \eqref{eq:acc:diseq} e in caso di successo aggiorna il conteggio e stampa su file le coordinate del punto di partenza e del punto di arrivo---riportate di nuovo nel riferimento del centro della sorgente.
+        La funzione \verb|intercept()| verifica l'intersezione del raggio nel caso di una sorgente puntiforme posta nell'origine. Per utilizzarla correttamente viene calcolata la posizione relativa del rivelatore $\pqty{x_c', y_c', z_c}$ e questa viene data in input alla funzione insieme alla direzione da verificare.
         \lstinputlisting[style = CStyle]{code/accettanza/intercept.txt}
+        La funzione valuta quindi la disequazione \eqref{eq:acc:diseq} e in caso di successo aggiorna il conteggio e stampa su file le coordinate del punto di partenza e del punto di arrivo, dopo averle riportate di nuovo nel riferimento del centro della sorgente.
 
-        Sullo stesso file, la funzione \verb|intercept()| si occupa anche stampare la posizione dei punti di intersezione del rivelatore convertendoli in coordinate polari nel sistema di riferimento centrato nel rivelatore stesso. Questi dati possono essere usati per costruire un istogramma e apprezzare la non uniformità della distribuzione della radiazione sul sensore.
+        Sullo stesso file, la funzione \verb|intercept()| si occupa anche di stampare la posizione dei punti di intersezione del rivelatore convertendoli in coordinate polari nel sistema di riferimento centrato nel rivelatore stesso. Questi dati possono essere usati per costruire un istogramma e apprezzare la non uniformità della distribuzione della radiazione sul sensore.
 
-        L'accettanza geometrica del rivelatore è infine calcolata dividendo il numero di raggi che intersecano il rivelatore per il numero totale di raggi generati. Come giustificato alla fine del punto \Sref{ss:acc:sorgente-puntiforme}, questo numero è a sua volta diviso per \num{2} per tenere conto solo dei raggi che viaggiano nel semispazio $z > 0$. Il programma quindi stampa a schermo l'accettanza geometrica del rivelatore e l'equivalente angolo solido che sottende.
+        L'accettanza geometrica del rivelatore è infine calcolata dividendo il numero di raggi che intersecano il rivelatore per il numero totale di raggi generati. Come giustificato alla fine del punto \Sref{ss:acc:sorgente-puntiforme}, questo numero è a sua volta diviso per \num{2} per tenere conto solo dei raggi che viaggiano nel semispazio $z > 0$; analogamente anche il numero \verb|hits|, prima di essere stampato a schermo, è diviso per \num{2} e arrotondato. Il programma quindi stampa a schermo anche l'accettanza geometrica del rivelatore e l'equivalente angolo solido che esso sottende.
 
     \section{Esempi e immagini}
         Riporto qui degli esempi di esecuzione della simulazione. Il nome dell'eseguibile è \verb|sim|, mentre gli argomenti che compaiono sono in ordine il numero di punti da generare, il raggio della sorgente, le coordinate $\pqty{x,y,z}$ del centro del rivelatore e la stringa da usare per i nomi dei file in cui salvare tutti i punti generati, \verb|<string>.1.txt|, e i punti da graficare, \verb|<string>.2.txt|.
@@ -118,7 +119,7 @@
             \centering
             \includegraphics[width=0.49\textwidth]{images/accettanza/example2.1.png}
             \includegraphics[width=0.49\textwidth]{images/accettanza/example2.2.png}
-            \caption{In questo caso osserviamo come la distribuzione sia particolarmente concentrata sul lato del rivelatore più vicino alla sorgente}
+            \caption{In questo caso osserviamo come la distribuzione sia particolarmente concentrata sul lato del rivelatore più vicino alla sorgente.}
         \end{figure}
         
         \begin{figure}[ht]
@@ -136,7 +137,7 @@
             \centering
             \includegraphics[width=0.49\textwidth]{images/accettanza/example4.1.png}
             \includegraphics[width=0.49\textwidth]{images/accettanza/example4.2.png}
-            \caption{Ponendo un rivelatore piccolo molto vicino alla sorgente la distribuzione è in prima approssimazione uniforme.}
+            \caption{Ponendo un rivelatore piccolo molto vicino alla sorgente la distribuzione appare in prima approssimazione uniforme.}
         \end{figure}
 
         

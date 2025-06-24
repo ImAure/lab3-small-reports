@@ -68,9 +68,9 @@
 
 \definecolor{mGreen}{rgb}{0,0.5,0}
 \definecolor{mGray}{rgb}{0.5,0.5,0.5}
-\definecolor{mPurple}{rgb}{0.58,0,0.82}
-\definecolor{mBlue}{rgb}{0.3,0.3,0.8}
-\definecolor{mLightBlue}{rgb}{0.4,0.7,0.4}
+\definecolor{mPurple}{rgb}{0.6,0.2,0.7}
+\definecolor{mBlue}{rgb}{0.2,0.2,0.9}
+\definecolor{mLightBlue}{rgb}{0,0.6,0.6}
 \definecolor{mOrange}{rgb}{0.8,0.3,0.2}
 \definecolor{backgroundColour}{rgb}{0.95,0.95,0.92}
 
@@ -78,20 +78,21 @@
     language          = C,
     backgroundcolor   = \color{backgroundColour},   
     commentstyle      = \color{mGray},
-    otherkeywords     = {+, =, -, *, /, ?, :, <, >, ;},
+    otherkeywords     = {+, =, -, *, &, /, ?, :, <, >, ;},
     keywordstyle      =    \color{mPurple},
-    keywordstyle      = [2]\color{blue},
+    keywordstyle      = [2]\color{mBlue},
     keywordstyle      = [3]\color{mOrange},
-    keywordstyle      = [4]\color{cyan},
+    keywordstyle      = [4]\color{mLightBlue},
     morekeywords      =    {polar2D_t, polar3D_t, file_t, point2D_t, point3D_t, disc3D_t},
     morekeywords      = [2]{rand_polar2D, sqrt, rand, rand_polar3D, cbrt, acos, sin, cos, tan, cart_to_polar2D, fprintf, intercept, wmax, bethe, log},
     morekeywords      = [3]{NULL, RAND_MAX, M_PI, E_M},
-    morekeywords      = [4]{+, =, -, *, /, ?, :, <, >, ;},
+    morekeywords      = [4]{+, =, -, *, &, /, ?, :, <, >, ;},
     numberstyle       = \tiny\color{mGray},
     stringstyle       = \color{mGreen},
     basicstyle        = \ttfamily\footnotesize,
     breakatwhitespace = false,         
-    breaklines        = true,                 
+    breaklines        = true,   
+    breakindent       = 0pt,              
     captionpos        = b,                    
     keepspaces        = true,                 
     numbers           = left,    
@@ -100,40 +101,41 @@
     numbersep         = 8pt,                                  
     showspaces        = false,                
     showstringspaces  = false,
-    showtabs          = false,                  
+    showtabs          = false,       
+    columns           = fixed,           
     tabsize           = 4
 }
 
 \lstdefinestyle{myarduino}{
-    language            = C++,
-    backgroundcolor     = \color{backgroundColour},   
-    commentstyle        = \color{mGray},
-    keywordstyle        = \color{mPurple},
-    otherkeywords       = {+, =, -, *, /, ?, :, <, >, ;},
-    keywordstyle        = [2]\color{mOrange},
-    keywordstyle        = [3]\color{blue},
-    keywordstyle        = [4]\color{cyan},
-    morekeywords        = [2]{SENSOR_PIN, INPUT, MAX_READ, MAX_V, N, A, B, 9600},
-    morekeywords        = [3]{setup, loop, print, analogRead, println, millis, delay, pinMode, begin},
-    morekeywords        = [4]{+, =, -, *, /, ?, :, <, >, ;},
-    morecomment         = [l]{//},
-    numberstyle         = \tiny\color{mGray},
-    stringstyle         = \color{mGreen},
-    basicstyle          = \ttfamily\footnotesize,
-    breakatwhitespace   = true,         
-    breaklines          = true,
-    breakindent         = 0pt,                 
-    captionpos          = b,                    
-    keepspaces          = true,                 
-    numbers             = left,
-    frame               = tblr,
-    rulecolor           = \color{black},
-    numbersep           = 8pt,                  
-    showspaces          = false,                
-    showstringspaces    = false,
-    showtabs            = false,                  
-    tabsize             = 4,
-    columns             = fixed,
+    language          = C++,
+    backgroundcolor   = \color{backgroundColour},   
+    commentstyle      = \color{mGray},
+    keywordstyle      = \color{mPurple},
+    otherkeywords     = {+, =, -, *, /, ?, :, <, >, ;},
+    keywordstyle      = [2]\color{mOrange},
+    keywordstyle      = [3]\color{mBlue},
+    keywordstyle      = [4]\color{mLightBlue},
+    morekeywords      = [2]{SENSOR_PIN, INPUT, MAX_READ, MAX_V, N, A, B, 9600},
+    morekeywords      = [3]{setup, loop, print, analogRead, println, millis, delay, pinMode, begin},
+    morekeywords      = [4]{+, =, -, *, /, ?, :, <, >, ;},
+    morecomment       = [l]{//},
+    numberstyle       = \tiny\color{mGray},
+    stringstyle       = \color{mGreen},
+    basicstyle        = \ttfamily\footnotesize,
+    breakatwhitespace = true,         
+    breaklines        = true,
+    breakindent       = 0pt,                 
+    captionpos        = b,                    
+    keepspaces        = true,                 
+    numbers           = left,
+    frame             = tblr,
+    rulecolor         = \color{black},
+    numbersep         = 8pt,                  
+    showspaces        = false,                
+    showstringspaces  = false,
+    showtabs          = false,                  
+    tabsize           = 4,
+    columns           = fixed,
 }
 
 \lstdefinestyle{mybash}{
@@ -148,16 +150,18 @@
     morekeywords      =    {./sim},
     morekeywords      = [2]{\$},
     basicstyle        = \ttfamily\footnotesize,
-    breakatwhitespace = false,         
-    breaklines        = true,                 
+    breakatwhitespace = true,         
+    breaklines        = true,
+    breakindent       = 0pt,                 
     captionpos        = b,                    
-    keepspaces        = true,                     
+    keepspaces        = true,                 
     frame             = tblr,
-    rulecolor         = \color{black},                                
+    rulecolor         = \color{black},
     showspaces        = false,                
     showstringspaces  = false,
     showtabs          = false,                  
-    tabsize           = 4
+    tabsize           = 4,
+    columns           = fixed,
 }
 
 
@@ -189,6 +193,16 @@
 %\tikzexternalize 
 \newlength{\plotsize}
 \setlength{\plotsize}{0.8\textwidth}
+
+
+
+%==========================%
+%   DON'T ASK ABOUT THIS   %
+%==========================%
+
+\ExplSyntaxOn
+    \msg_redirect_name:nnn{siunitx}{physics-pkg}{none} % shut up the warning. \qty{} uses physics definition
+\ExplSyntaxOff
 
 
 
