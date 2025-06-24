@@ -1,5 +1,5 @@
 \chapter{Accettanza Geometrica di un Rivelatore}\label{ch:acc}
-    L'utlima esperienza consiste nel calcolare l'accettanza geometrica di un rivelatore, definita come il rapporto tra il numero di particelle incidenti e il numero di particelle emesse, sfruttando la generazione di numeri casuali e il metodo montecarlo.
+    L'ultima esperienza consiste nel calcolare l'accettanza geometrica di un rivelatore, definita come il rapporto tra il numero di particelle incidenti e il numero di particelle emesse, sfruttando la generazione di numeri casuali e il metodo montecarlo.
 
     \section{Il sistema fisico proposto}
         L'obiettivo che mi sono posto è stato quello di calcolare l'accettanza geometrica di un rivelatore a forma di dischetto con raggio variabile, posto in una posizione arbitraria nel semispazio positivo delle $z$. Allo stesso modo, la sorgente di particelle è costituita da un secondo dischetto, anch'esso con raggio variabile, centrato nell'origine.
@@ -83,7 +83,7 @@
             dove $\vartheta$ e $\varphi$ sono ancora le direzioni generate casualmente nel sistema del punto sorgente; $z_c$ resta invariato dal momento che il punto $S$ giace ancora in $Oxy$.
     
     \section{Codice e generazione dei punti}
-        Come per la simulazione dell'assorbimento di particelle cariche esposto al capitolo \Sref{ch:bet}, anche per questo progetto l'interezza del codice è reperibile sul mio profilo GitHub.\footnote{Repository: \url{https://github.com/ImAure/geometric-acceptance}}
+        Come per la simulazione dell'assorbimento di particelle cariche esposto al Capitolo \Sref{ch:bet}, anche per questo progetto l'interezza del codice è reperibile sul mio profilo GitHub.\footnote{Repository: \url{https://github.com/ImAure/geometric-acceptance}}
 
         Il programma può essere lanciato scegliendo fin da subito il numero di punti da generare, le dimensioni della sorgente e del rivelatore e la posizione di quest'ultimo. Dopo aver verificato la validità dell'input e caricati i dati in memoria, il programma genera un punto casuale come sorgente in coordinate polari piane e una direzione casuale per la radiazione in coordinale polari sferiche.
         \lstinputlisting[style = CStyle]{code/accettanza/random.txt}
