@@ -7,10 +7,10 @@
 \newcommand{\txtloop}{\texttt{loop}}
 
 \chapter{Misura di Temperature con Arduino}\label{ch:ard}
-    Tra le esperienze svolte con Arduino Uno riporto in particolare la misura della variazione della temperatura della mia stanza in seguito all'accensione del riscaldamento.
+    \lettrine[loversize=0.08, lines=2]{T}{ra le esperienze} svolte con Arduino Uno riporto in particolare la misura della variazione della temperatura della mia stanza in seguito all'accensione del riscaldamento.
 
     \section{L'esperimento}
-            L'obiettivo dell'esperienza è quello di valutare qualitativamente l'andamento della temperatura della stanza per fare una stima di quanto velocemente si riscaldi e a quale temperatura tenda asintoticamente.
+            L'obiettivo dell'esperienza è quello di valutare qualitativamente l'andamento della temperatura della stanza per fare una stima di quanto velocemente si riscaldi, verificare che la temperatura giunga a saturazione e stimare a quale valore tenda asintoticamente.
 
         \subsection{Preparazione della stanza}\label{ss:ard:preparazione}
             Per massimizzare l'escursione termica ho effettuato la misura durante una sera invernale avendo preventivamente aperto le finestre per abbassare la temperatura della stanza.
@@ -42,7 +42,7 @@
                     \begin{minipage}{0.49\textwidth}
                         \includegraphics[width = \textwidth]{images/arduino/temp-scheme.pdf}
                     \end{minipage}
-                    \caption{A sinistra una rappresentazione digitale del circuito realizzato per l'esperimento. A destra lo schema del circuito. Entrambe le illustrazioni sono state realizzate con Tinkercad\textsuperscript{\textregistered}.}
+                    \caption{A sinistra una rappresentazione digitale del circuito realizzato per l'esperimento. A destra lo schema del circuito. Entrambe le illustrazioni sono state realizzate con Tinkercad\textsuperscript{\tiny\textregistered}.}
                     \label{fig:arduino-1}
             \end{figure}
 
@@ -62,7 +62,7 @@
             La conversione dei valori discreti in temperatura è eseguita dal codice tra le righe \lnref{ln:ard:calc-start} e \lnref{ln:ard:calc-end} applicando la \eqref{eq:ard:temp-conv}. Vengono eseguite $\text{\ttfamily N} = 20$ misure consecuitive di cui è contestualmente calcolata la media che viene a sua volta stampata a schermo. Infine il codice attende il tempo mancante per raggiungere i \SI{30}{\second} dall'inizio del \txtloop.
 
     \section{Dati}
-        Attraverso il codice riportato al punto \Sref{ard:codice} ho misurato la temperatura della stanza ogni \SI{30}{s} per circa cinque ore e mezza; in \figref{fig:ard:raw-temp} sono riportati tutti i dati raccolti, avendo convertito il tempo in minuti.
+        Attraverso il procedimento descritto al punto \Sref{ard:codice} ho misurato la temperatura della stanza ogni \SI{30}{s} per circa cinque ore e mezza; in \figref{fig:ard:raw-temp} sono riportati tutti i dati raccolti, avendo convertito il tempo in minuti.
 
         \begin{figure}
             \centering
@@ -78,9 +78,9 @@
         \end{figure}
 
         \subsection{Prime considerazioni}
-            Osservando il grafico si nota una evidente crescita di temperatura che, dopo una crescita regolare, oscilla fino a stabilizzarsi poco sopra i \SI{24}{\celsius}.
+            Osservando il grafico si nota una evidente crescita di temperatura che nel tratto finale oscilla fino a stabilizzarsi poco sopra i \SI{24}{\celsius}.
             
-            I primi punti a temperatura più elevata possono essere dovuti a un precedente contatto con le mani e un riscaldamento del sensore che è poi tornato a temperatura ambiente. L'ampia oscillazione dei dati intorno ai \SI{130}{\min} deve essere dovuta a un movimento del sensore, che ho dovuto spostare di qualche centimetro. È quindi possibile che anche le successive oscillazioni siano dovute alla nuova posizione del sensore in un punto con un flusso d'aria più dinamico.
+            I primi punti a temperatura più elevata possono essere dovuti a un precedente contatto con le mani e un riscaldamento del sensore che è subito tornato a temperatura ambiente. L'ampia oscillazione dei dati intorno ai \SI{130}{\min} deve essere dovuta a un movimento del sensore, che ho dovuto spostare di qualche centimetro. È quindi possibile che anche le successive oscillazioni siano dovute alla nuova posizione del sensore in un punto con un flusso d'aria più dinamico.
 
         \subsection{Breve analisi dei dati}
             Per per visualizzare il macro-andamento della temperatura tamponando il rumore, ho deciso di suddividere le misure in intervalli temporali di \SI{30}{\min} e riportare nel grafico in \figref{fig:ard:avg-temp} la temperatura media per ciascun intervallo.
@@ -93,7 +93,7 @@
                 \mycomma
                 \label{eq:ard:temp-analitica}
             \end{equation}
-            per qualche valore di $T_\text{f}$, $t_0$ e $\tau$. Supponiamo arbitrariamente che la temperatura limite\footnote{I dati in \figref{fig:ard:raw-temp} oscillando superano i \SI{25}{\celsius} ma le ultime misure sono tutte comprese tra \SI{24}{\celsius} e \SI{24.5}{\celsius}, motivo per cui assumo quest'ultimo valore come temperatura limite.} sia $T_\text{f} = \SI{24.5}{\celsius}$; per quanto detto prima supponiamo inoltre che il tempo caratteristico\footnote{Dal momento che ``a occhio'' la temperatura di \SI{24.5}{\celsius} viene già raggiunta dopo \SI{150}{\min}, scegliamo il tempo caratteristico come il tempo necessario a raggiungere il \SI{63}{\%}, ovvero \textit{$\pqty{1/e}$-esimo} della temperatura finale.} sia $\tau = \SI{95}{min} \approx$ \SI{63}{\%} di \SI{150}{\min}. Imponendo che sia $T\pqty{0} = \SI{18.63}{\celsius}$ troviamo
+            per qualche valore di $T_\text{f}$, $t_0$ e $\tau$. Supponiamo arbitrariamente che la temperatura limite\footnote{I dati in \figref{fig:ard:raw-temp} oscillando superano i \SI{25}{\celsius}, ma le ultime misure sono tutte comprese tra \SI{24}{\celsius} e \SI{24.5}{\celsius}, motivo per cui assumo quest'ultimo valore come temperatura limite.} sia $T_\text{f} = \SI{24.5}{\celsius}$; per quanto detto prima supponiamo inoltre che il tempo caratteristico\footnote{Dal momento che ``a occhio'' la temperatura di \SI{24.5}{\celsius} viene già raggiunta dopo \SI{150}{\min}, scegliamo $\tau$ come il tempo necessario a raggiungere il \SI{63}{\%} di \SI{24.5}{\celsius}, ovvero un \textit{$\pqty{1 - 1/e}$-esimo} della temperatura finale.} sia $\tau = \SI{95}{min} \approx$ \SI{63}{\%} di \SI{150}{\min}. Imponendo che sia $T\pqty{0} = \SI{18.63}{\celsius}$ troviamo
             \begin{equation*}
                 t_0
                 = \tau \log\!\bqty{1-\frac{T\pqty{0}}{T_\text{f}}}
@@ -101,7 +101,7 @@
                 \myperiod
             \end{equation*}
 
-            Infine per centrare meglio la funzione rispetto agli intervalli di \SI{30}{\min} sommiamo a $t_0$ un valore di \SI{15}{\min}, pari a metà dell'intervallo di tempo. La funzione finale che si ottiene sostituendo questi valori nella \eqref{eq:ard:temp-analitica} e si trova rappresentata in \figref{fig:ard:avg-temp} è
+            Infine per centrare meglio la funzione rispetto agli intervalli di \SI{30}{\min} sommiamo a $t_0$ un valore di \SI{15}{\min}, pari a metà dell'intervallo di tempo. La funzione finale che si ottiene sostituendo questi valori nella \eqref{eq:ard:temp-analitica}, rappresentata in rosso in \figref{fig:ard:avg-temp}, è
             \begin{equation}
                 T\pqty{t} =  24.5 \bqty{1 - \exp\!\pqty{-\frac{t + 120}{95}}}
                 \myperiod
@@ -119,5 +119,5 @@
             \myperiod
         \end{equation*}
 
-        Si potrebbe inoltre provare a utilizzare funzioni diverse dalla \eqref{eq:ard:temp-analitica} nel fit per provare a modellare quantitativamente le oscillazioni che si verificano in prossimità della temperatura limite, possibilmente dovute a moti convettivi non del tutto smorzati dai ventilatori indicati al punto \Sref{ss:ard:preparazione}.
+        Si potrebbe inoltre provare a utilizzare funzioni diverse dalla \eqref{eq:ard:temp-analitica} nel fit per provare a modellare quantitativamente le oscillazioni che si verificano in prossimità della temperatura limite, possibilmente dovute a moti convettivi non del tutto smorzati, se non addirittura accentuati, dai ventilatori indicati al punto \Sref{ss:ard:preparazione}.
         

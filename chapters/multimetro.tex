@@ -2,9 +2,9 @@
 \newcommand{\vell}{Vellemann\textsuperscript{\tiny\textregistered}}
 
 \chapter{Misura di resistenze con un multimetro digitale}\label{ch:mult}
-    \lettrine[loversize=0.08, lines=2]{T}{ra le esperienze} svolte con il multimetro digitale riporto la misura delle resistenze di vari oggetti, tra cui un anello e alcuni resistori, misurati sia individualmente che in parallelo.
-
-    Ai resistori dedico una sezione più approfondita in quanto ho preso \num{50} misure su resistori distinti---ma teoricamente con resistenza uguale---per verificare la distribuzione delle misure.
+    \lettrine[loversize=0.08, lines=2]{T}{ra le esperienze} svolte con il multimetro digitale riporto la misura delle resistenze di vari oggetti, tra cui un anello e alcuni resistori, misurate sia individualmente che in parallelo.
+    
+    Dedico ai resistori una sezione a parte, per poter approfondire la distribuzione delle misure ottenute misurando la resistenza di \num{50} di essi.
 
     \section{Il multimetro}
         Lo strumento utilizzato per l'interezza dell'esperienza è un multimetro digitale della serie \dvm\ della \vell\ \cite{velleman-dvm841}, \figref{fig:mul:multimetro}. Il multimetro è in grado di misurare tensione e corrente continua e alternata, resistenza, frequenza e temperatura. Avendo una risoluzione di \num{2000} punti, il display del multimetro può visualizzare un massimo di \num{1999} unità.
@@ -39,7 +39,7 @@
         \subsection{Considerazioni preliminari}
             Notiamo subito che la resistenza media è $R_\text{m} = \SI{808.6}{\ohm}$ con una deviazione standard di $\sigma = \SI{2.3}{\ohm}$; l'errore sul valor medio è quindi $\sigma_R = \sigma / \sqrt{N-1} = \SI{0.33}{\ohm}$, che è confrontabile con la sensibilità dello strumento $\delta R_\text{s} = \SI{1}{\ohm}$.
             
-            Questi valori rientrano completamete nell'intervallo fornito dal costruttore; tuttavia, il fatto che tutte le misure siano inferiori a \SI{820}{\ohm} suggerisce la presenza di un errore sistematico.\footnote{Se si trattasse di errori casuali dovuti a imprecisioni di fabbricazione, mi aspetterei letture sia al di sopra che al di sotto del valore di riferimento; è poco probabile che tutte le resistenze devino dal valore teorico allo stesso modo a meno che non si sia verificato un evento che ha alterato tutte le resistenze---un lotto prodotto con lo stesso materiale meno resistente, seppur entro il margine del \SI{5}{\%}, o deterioramento nel tempo.}
+            Questi valori rientrano completamete nell'intervallo fornito dal costruttore; tuttavia, il fatto che tutte le misure siano inferiori a \SI{820}{\ohm} suggerisce la presenza di un errore sistematico.\footnote{Se si trattasse di errori casuali dovuti a imprecisioni di fabbricazione, mi aspetterei letture sia al di sopra che al di sotto del valore di riferimento; è poco probabile che tutte le resistenze devino dal valore teorico allo stesso modo a meno che non si sia verificato un evento che ha alterato tutte le resistenze---un lotto prodotto con lo stesso materiale meno resistente, seppur entro il margine del \SI{5}{\%}, o deterioramento dovuto al tempo.}
 
             Il dato di resistenza minima di \SI{797}{\ohm} può essere scartato secondo il cirerio di Chauvenet. Esso dista più di $4\sigma$ dal valor medio (ca. $\num{4.17}\sigma$) e il numero di dati atteso\footnote{Per il calcolo di questa probabilità ho fatto riferimento alla tabella fornita in Taylor, J. R. \textit{Introduzione all'analisi degli errori} \cite{Taylor1999-me}.} su un campione di $N = 50$ elementi a una distanza maggiore o uguale a $4\sigma$ è pari a $\num{0.003} \ll 1/2$. Scartando questo dato la nuova media e la nuova deviazione standard sono:
             \begin{equation*}
@@ -70,7 +70,7 @@
             \begin{table}
                 \centering
                 \input{tables/multimetro/chi2-bin.tex}
-                \caption{Suddivisione dei dati per il test del $\chi^2$. Ometto le unità di misura per chiarezza espositiva e semplicità dei calcoli.}
+                \caption{Suddivisione dei dati per il test del $\chi^2$. Ometto le unità di misura per chiarezza espositiva e semplicità dei calcoli. Avendo scelto valori seminteri per gli estremi, nessuna misura può cadere a cavallo tra due bin.}
                 \label{tab:mul:bin-istogramma}
             \end{table}
 
@@ -86,7 +86,7 @@
             essendo $d = n - c = 6$ il numero di gradi di libertà, $n = 8$ il numero di bin e $c = 2$ il numero di parametri stimati---media e deviazione standard. Il valore critico per il test del $\chi^2$ è $\chi^2_\text{crit}= \num{12.59}$ \cite{chi2-table}, posso quindi rigettare l'ipotesi nulla che le misure seguano la distribuzione gaussiana.
 
     \section{Altre misure di resistenze}
-        Riporto altre misure eseguite con il multimetro su vari materiali.
+        Riporto adesso altre misure eseguite con il multimetro su vari materiali.
         
         \subsection{Resistenze in parallelo}
             Usando $n = 1, 2, 3$ resistori scelti casualmente tra quelli studiati al punto \Sref{s:mul:resistori}, ho misurato la resistenza equivalente $R_\text{o}$ dei resistori montati in parallelo su una breadboard come in \figref{fig:mul:res-parallelo}. I risultati sono riportati in \tabref{tab:mul:res-parallelo}, insieme ai valori teorici, calcolati a partire dalla $R_\text{m}$ del punto precedente come
@@ -106,7 +106,7 @@
             \begin{figure}
                 \centering
                 \includegraphics[width=0.4\textwidth]{images/multimetro/res-parallelo.png}
-                \caption{Illustrazione rappresentativa dei resistori montati in parallelo su una breadboard.}
+                \caption{Illustrazione rappresentativa dei resistori montati in parallelo su una breadboard, realizzata con Tinkercad\textsuperscript{\tiny\textregistered}.}
                 \label{fig:mul:res-parallelo}
             \end{figure}
             \begin{table}
@@ -119,7 +119,7 @@
             Osservando i dati si nota che la resistenza equivalente osservata $R_\text{o}$ è sempre maggiore della resistenza teorica $R_\text{e}$. Questo può essere dovuto alla presenza di una resistenza di contatto con la breadboard, che non ho considerato nel calcolo di $R_\text{e}$.
 
         \subsection{Resistività di un anello}
-            Ho misurato la resistenza di un anello metallico che suppongo essere in argento. L'anello è di forma circolare ma presenta un'apertura in basso, per cui ho effettuato la misura della resistenza poggiando i puntali del multimetro in corrispondenza dei punti estremi dell'apertura, come in \figref{fig:mul:anello}. Ho posto il multimetro alla portata di \SI{200}{\ohm} disponendo di una sensibilità $\delta R_\text = \SI{0.1}{\ohm}$; la resistenza misurata è quindi $R = \SI{0.5}{\ohm}$.
+            Ho misurato la resistenza di un anello metallico che suppongo essere in argento. L'anello è di forma circolare ma presenta un'apertura in basso, per cui ho effettuato la misura della resistenza poggiando i puntali del multimetro in corrispondenza dei punti estremi dell'apertura, come in \figref{fig:mul:anello}. Ho posto il multimetro alla portata di \SI{200}{\ohm} disponendo di una sensibilità $\delta R_\text{s} = \SI{0.1}{\ohm}$; la resistenza misurata è quindi $R = \SI{0.5(1)}{\ohm}$.
 
             Dalla seconda legge di Ohm possiamo ricavare la resistività del materiale che compone l'anello, supponendo che esso sia omogeneo e isotropo. La resistività è definita come
             \begin{equation}
@@ -131,13 +131,13 @@
             \begin{figure}
                 \centering
                 \includegraphics[width=0.4\textwidth]{images/multimetro/anello.jpg}
-                \caption{Fotografia dell'anello. I tratti in rosso indicano il punti in cui sono stati poggiati i puntali del multimetro.}
+                \caption{Fotografia dell'anello. I tratti in rosso indicano i punti in cui sono stati poggiati i puntali del multimetro.}
                 \label{fig:mul:anello}
             \end{figure}
 
             L'anello ha una raggio medio di $r = \SI{2.1(1)}{\centi\meter}$, uno spessore di $d = \SI{0.3(1)}{\centi\meter}$ e un'altezza pari a $h = \SI{0.8(1)}{\centi\meter}$. La sezione dell'anello è quindi $S = hd = \SI{0.24(11)}{\centi\meter\squared}$, mentre, denotando con $\ell = \SI{1.0(1)}{\centi\meter}$ la distanza che separa i due puntali e che quindi non partecipa alla resistenza, la lunghezza equivalente è $L = 2\pi r - \ell = \SI{12.3(7)}{\centi\meter}$.
 
-            Dal momento che l'anello è formato da fili cilindrici intrecciati, la sezione $S$ rappresenta in realtà una sovrastima della sezione effettiva. Il rapporto tra la superficie di un cerchio di raggio $d/2$ e quella di un quadrato di lato $d$ è pari a $\pi / 4$, per cui la sezione effettiva è $S_\text{eff} = S \pi / \num{4} = \SI{0.19(8)}{\centi\meter\squared}$.
+            Dal momento che l'anello è formato da fili cilindrici intrecciati, la sezione $S$ rappresenta in realtà una sovrastima della sezione effettiva. Il rapporto tra la superficie di un cerchio di raggio $d/2$ e quella di un quadrato di lato $d$ è pari a $\pi / 4$, per cui introduciamo la sezione effettiva pari a $S_\text{eff} = S \pi / \num{4} = \SI{0.19(8)}{\centi\meter\squared}$.
             
             La resistività dell'anello calcolata dalla \eqref{eq:mul:ohm-law} è quindi
             \begin{equation*}
